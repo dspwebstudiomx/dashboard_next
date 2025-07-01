@@ -1,20 +1,17 @@
-// File: src/app/page.tsx
 import React from "react";
 import ColorDemo from "@/components/ColorDemo";
 import ParagraphDemo from "@/components/ParagraphDemo";
 import TitlesDemo from "@/components/TitlesDemo";
 import Container from "@/components/Containers/Container";
+import ButtonDemo from "@/components/ButtonDemo";
 
-export interface IAppProps {
-	children?: React.ReactNode;
-}
-
-export default function App(): React.JSX.Element {
+export default function App() {
 	return (
 		<Container>
 			<ColorDemo />
 			<TitlesDemo />
 			<ParagraphDemo />
+			<ButtonDemo />
 		</Container>
 	);
 }
