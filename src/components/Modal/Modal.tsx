@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect } from "react";
-import Button from "../Button/Button";
 import { IoMdClose } from "react-icons/io";
-import H4 from "../Title/H4";
+import Button from "../Button/Button";
+import H3 from "../Title/H3";
 
 // Extiende el tipo Window para incluir __openModals
 declare global {
@@ -45,14 +45,14 @@ const Modal = ({
 				<div className="flex justify-end">
 					<Button variant="icon" ref={closeButtonRef} onClick={onClose}>
 						<span role="img" aria-label="icon">
-							<IoMdClose className="text-3xl font-bold" />
+							<IoMdClose className="text-4xl font-bold" />
 						</span>
 					</Button>
 				</div>
 				<div className=" flex flex-col gap-8 p-8">
-					<H4 id="modal-title" align="left">
+					<H3 id="modal-title" align="left">
 						{modalTitle}
-					</H4>
+					</H3>
 					<div className="mb-4 flex flex-col gap-8">{children}</div>
 				</div>
 			</div>
