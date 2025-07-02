@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ButtonProps {
-	children: React.ReactNode;
+	text?: string;
 	onClick?: () => void;
 	variant?:
 		| "primary"
@@ -25,6 +25,7 @@ interface ButtonProps {
 		| "flat";
 	className?: string;
 	type?: "button" | "submit" | "reset";
+	icon?: React.ReactNode; // Nuevo prop opcional para ícono
 }
 
 const baseStyles = "px-4 py-3 rounded-xl font-semibold transition-colors";
@@ -61,12 +62,13 @@ const types: Record<string, "button" | "submit" | "reset"> = {
 };
 
 export default function Button({
-	children,
+	text,
 	onClick,
 	variant = "primary",
 	className = "",
 	type = "button",
 	ref,
+	icon,
 }: ButtonProps & { ref?: React.Ref<HTMLButtonElement> }) {
 	return (
 		<button
@@ -74,7 +76,10 @@ export default function Button({
 			type={types[type] || "button"}
 			className={`${baseStyles} ${variants[variant]} ${className}`}
 			onClick={onClick}>
-			{children}
+			<span className="flex items-center justify-center">
+				{icon && <span className="mr-2 flex-shrink-0">{icon}</span>}
+				{text}
+			</span>
 		</button>
 	);
 }

@@ -5,7 +5,7 @@ import Modal from "@/components/Modal/Modal"; // Componente de modal
 import useModal from "@/hooks/useModal"; // Hook personalizado para manejar el estado del modal
 
 // Componente HandleModalButton
-const HandleModalButton = ({ children, title, modalTitle }) => {
+const HandleModalComponent = ({ children, title, modalTitle }) => {
 	const { isOpen, open, close, closeButtonRef } = useModal();
 
 	return (
@@ -23,7 +23,7 @@ const HandleModalButton = ({ children, title, modalTitle }) => {
 	);
 };
 
-export default HandleModalButton;
+export default HandleModalComponent;
 
 /*
   Componente para manejar la apertura y cierre de un modal.

@@ -3,7 +3,14 @@ import React from "react";
 interface ParagraphProps {
 	children?: React.ReactNode;
 	className?: string;
-	align?: "left" | "center" | "right" | "justify";
+	align?:
+		| "left"
+		| "center"
+		| "right"
+		| "justify"
+		| "pretty"
+		| "inherit"
+		| "initial";
 }
 
 const Paragraph: React.FC<ParagraphProps> = ({ children, align }) => {
