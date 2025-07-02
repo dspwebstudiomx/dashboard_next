@@ -1,3 +1,22 @@
+/*
+  Component: Modal
+  Description: A reusable modal component that can be used to display content in a dialog box.
+  It handles opening and closing, and manages the body's overflow style to prevent scrolling when the modal is open.
+  Usage: Wrap your content inside the Modal component and provide an onClose function to handle closing
+  the modal. Optionally, you can pass a title for the modal and a reference for the close button.
+  Example:
+    <Modal onClose={handleClose} modalTitle="My Modal">
+      <p>This is the content of the modal.</p>
+    </Modal>
+  Note: This component uses the `useEffect` hook to manage the modal's open state
+  and the body's overflow style. It also uses the `IoMdClose` icon for the close button.
+  Make sure to import the necessary styles and icons in your project.
+  Dependencies: React, IoMdClose from react-icons, Button component, H3 title component.
+  Accessibility: The modal is accessible with ARIA attributes for dialog and modal roles.
+  Animation: The modal has a fade-in animation when it opens.
+  License: MIT
+*/
+
 "use client";
 import React, { useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
@@ -11,6 +30,7 @@ declare global {
 	}
 }
 
+// Define las propiedades del modal
 interface ModalProps {
 	children: React.ReactNode;
 	onClose: () => void;
@@ -18,6 +38,7 @@ interface ModalProps {
 	modalTitle?: string;
 }
 
+// Componente Modal
 const Modal = ({
 	children,
 	onClose,
