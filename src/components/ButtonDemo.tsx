@@ -3,10 +3,12 @@ import HandleModalComponent from "@/components/Modal/HandleModalComponent";
 import { FaFaceAngry } from "react-icons/fa6";
 import { IoEnterOutline } from "react-icons/io5";
 import Paragraph from "./Paragraph/Paragraph";
+import H2 from "./Title/H2";
 
 export default function ButtonDemo() {
 	return (
-		<div className="flex flex-col  gap-12 w-full max-w-screen-xl">
+		<div className="flex flex-col  gap-20 w-full max-w-screen-xl my-32">
+			<H2 align="center">Botones</H2>
 			<div className="flex gap-4 flex-wrap">
 				<HandleModalComponent
 					icon={<IoEnterOutline className="text-2xl" />}

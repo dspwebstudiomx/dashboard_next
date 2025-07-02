@@ -1,17 +1,10 @@
-import React from "react";
-import ColorDemo from "@/components/ColorDemo";
-import ParagraphDemo from "@/components/ParagraphDemo";
-import TitlesDemo from "@/components/TitlesDemo";
 import Container from "@/components/Containers/Container";
-import ButtonDemo from "@/components/ButtonDemo";
+import H1 from "@/components/Title/H1";
 
 export default function App() {
 	return (
 		<Container>
-			<ColorDemo />
-			<TitlesDemo />
-			<ParagraphDemo />
-			<ButtonDemo />
+			<H1 align="center">Dashboard</H1>
 		</Container>
 	);
 }

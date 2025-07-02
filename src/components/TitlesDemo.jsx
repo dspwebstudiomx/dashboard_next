@@ -7,7 +7,7 @@ import H6 from "@/components/Title/H6";
 
 const TitlesDemo = () => {
 	return (
-		<div id="titles" className="flex flex-col  gap-4 w-full">
+		<div id="titles" className="flex flex-col  gap-12 w-full">
 			<H2 align="center">Títulos</H2>
 			<div className="flex gap-4 items-end justify-start">
 				<H1 align="left">Hola Mundo</H1>

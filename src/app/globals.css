@@ -1,14 +1,16 @@
 @import "tailwindcss";
-
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
 	--color-primary: #0070f3;
-	--color-secondary: #1a1111;
+	--color-primary-light: #e0f2ff;
+	--color-primary-dark: #005bb5;
+	--color-secondary: rgba(10, 10, 10, 0.87);
+	--color-secondary-light: rgba(10, 10, 10, 0.4);
+	--color-secondary-dark: rgba(10, 10, 10, 1);
 	--color-accent: #ff4081;
+	--color-accent-light: #ff80ab;
+	--color-accent-dark: #c51162;
 	--color-success: #4caf50;
 	--color-warning: #ff9800;
 	--color-error: #f44336;
@@ -20,12 +22,21 @@
 	--font-sans: var(--font-geist-sans);
 	--font-mono: var(--font-geist-mono);
 }
+:root {
+	--background: #ffffff;
+	--foreground: var(--color-secondary);
+}
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #0a0a0a;
 		--foreground: #ededed;
 	}
+}
+
+.dark {
+	--background: #0a0a0a;
+	--foreground: #ededed;
 }
 
 body {
@@ -38,12 +49,14 @@ body {
 
 /* Webkit (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
-	width: 8px;
+	width: 12px;
 	background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
 	background: var(--color-primary);
-	border-radius: 8px;
+	/* border-radius: 8px; */
+	border-radius: 0;
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4); /* Sombra interna para un efecto más sutil */
 }
 ::-webkit-scrollbar-thumb:hover {
 	background: #005bb5; /* Un tono más oscuro del primario para hover */
@@ -51,3 +64,5 @@ body {
 ::-webkit-scrollbar-track {
 	background: var(--background);
 }
+
+/* Personal Styles */

@@ -1,7 +1,6 @@
-import React from "react";
+import Paragraph from "./Paragraph/Paragraph";
 import H2 from "./Title/H2";
 import H6 from "./Title/H6";
-import Paragraph from "./Paragraph/Paragraph";
 
 // This component demonstrates the usage of Paragraph component with different alignments
 const ParagraphDemo = () => {
@@ -63,7 +62,7 @@ const ParagraphDemo = () => {
 					</Paragraph>
 				</div>
 				<div className="flex gap-20 items-center justify-start text-justify">
-					<H6>Párrafo texto al centro</H6>
+					<H6>Párrafo con texto justificado</H6>
 					<Paragraph align="justify">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
 						facere adipisci odio, fugiat laboriosam quae eligendi tenetur ut

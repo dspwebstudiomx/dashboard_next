@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+	darkMode: "class", // Habilita el modo oscuro por clase
 	content: ["./src/**/*.{js,ts,jsx,tsx}", "./public/index.html"],
 	theme: {
 		extend: {
