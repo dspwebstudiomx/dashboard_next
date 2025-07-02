@@ -1,6 +1,7 @@
 import Button from "@/components/Button/Button";
 import HandleModalComponent from "@/components/Modal/HandleModalComponent";
 import { FaFaceAngry } from "react-icons/fa6";
+import { IoEnterOutline } from "react-icons/io5";
 import Paragraph from "./Paragraph/Paragraph";
 
 export default function ButtonDemo() {
@@ -8,7 +9,9 @@ export default function ButtonDemo() {
 		<div className="flex flex-col  gap-12 w-full max-w-screen-xl">
 			<div className="flex gap-4 flex-wrap">
 				<HandleModalComponent
-					title={"Abrir Modal Principal"}
+					icon={<IoEnterOutline className="text-2xl" />}
+					type={"button"}
+					text={"Abrir Modal Principal"}
 					modalTitle={"Modal Principal"}>
 					<Paragraph align="justify">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
@@ -27,7 +30,9 @@ export default function ButtonDemo() {
 					</Paragraph>
 					<div className="flex flex-col gap-4 mt-4 items-end">
 						<HandleModalComponent
-							title={"Abrir Modal Anidado"}
+							icon={<IoEnterOutline className="text-2xl" />}
+							type={"button"}
+							text={"Abrir Modal Anidado"}
 							modalTitle={"Modal Anidado"}>
 							<div>
 								Este es un modal anidado dentro del modal principal. Puedes
