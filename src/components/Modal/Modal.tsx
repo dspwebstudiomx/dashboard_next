@@ -32,10 +32,10 @@ declare global {
 
 // Define las propiedades del modal
 interface ModalProps {
-	children: React.ReactNode;
-	onClose: () => void;
-	closeButtonRef?: React.RefObject<HTMLButtonElement>;
-	modalTitle?: string;
+	children: React.ReactNode; // Contenido del modal
+	onClose: () => void; // Función para cerrar el modal
+	closeButtonRef?: React.RefObject<HTMLButtonElement>; // Referencia para el botón de cerrar
+	modalTitle?: string; // Título del modal
 }
 
 // Componente Modal
@@ -64,11 +64,12 @@ const Modal = ({
 			aria-labelledby="modal-title">
 			<div className="bg-gray-100 p-8 rounded-2xl border-2 border-gray-300 shadow-lg transform transition-all duration-300 animate-modalIn z-40 2xl:min-w-screen-xl 2xl:max-w-screen-xl mx-auto">
 				<div className="flex justify-end">
-					<Button variant="icon" ref={closeButtonRef} onClick={onClose}>
-						<span role="img" aria-label="icon">
-							<IoMdClose className="text-4xl font-bold" />
-						</span>
-					</Button>
+					<Button
+						icon={<IoMdClose className="text-4xl font-bold" />} // Icono de cerrar
+						variant="icon" // Variante del botón para icono
+						ref={closeButtonRef} // Referencia para el botón de cerrar
+						onClick={onClose} // Función para cerrar el modal
+					/>
 				</div>
 				<div className=" flex flex-col gap-8 p-8">
 					<H3 id="modal-title" align="left">
