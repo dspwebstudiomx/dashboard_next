@@ -1,3 +1,4 @@
+import Button from "./Button/Button";
 import Card from "./Cards/Card";
 import Paragraph from "./Paragraph/Paragraph";
 import H2 from "./Title/H2";
@@ -28,6 +29,7 @@ const CardsDemo = () => {
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					</Paragraph>
+					<Button text="Botón de acción" variant="primary" className="mt-4" />
 				</Card>
 			</div>
 		</>
