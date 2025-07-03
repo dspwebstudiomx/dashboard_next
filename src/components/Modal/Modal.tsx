@@ -1,4 +1,5 @@
 "use client";
+// Importa las dependencias necesarias
 import React, { useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button/Button";
