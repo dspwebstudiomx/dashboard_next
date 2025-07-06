@@ -5,12 +5,25 @@ import Modal from "@/components/Modal/Modal"; // Componente de modal
 import useModal from "@/hooks/useModal"; // Hook personalizado para manejar el estado del modal
 
 // Componente HandleModalButton
-const HandleModalComponent = ({ children, modalTitle, text, type, icon }) => {
+const HandleModalComponent = ({
+	children,
+	modalTitle,
+	text,
+	type,
+	icon,
+	variant,
+}) => {
 	const { isOpen, open, close, closeButtonRef } = useModal();
 
 	return (
 		<>
-			<Button text={text} type={type} onClick={open} icon={icon} />
+			<Button
+				text={text}
+				type={type}
+				onClick={open}
+				icon={icon}
+				variant={variant}
+			/>
 			{isOpen && (
 				<Modal
 					onClose={close}

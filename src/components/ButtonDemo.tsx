@@ -14,7 +14,8 @@ export default function ButtonDemo() {
 					icon={<IoEnterOutline className="text-2xl" />}
 					type={"button"}
 					text={"Abrir Modal Principal"}
-					modalTitle={"Modal Principal"}>
+					modalTitle={"Modal Principal"}
+					variant={"warning"}>
 					<Paragraph align="justify">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
 						nulla reiciendis, commodi adipisci, facilis consequatur aliquid
@@ -35,7 +36,8 @@ export default function ButtonDemo() {
 							icon={<IoEnterOutline className="text-2xl" />}
 							type={"button"}
 							text={"Abrir Modal Anidado"}
-							modalTitle={"Modal Anidado"}>
+							modalTitle={"Modal Anidado"}
+							variant={"outline"}>
 							<div>
 								Este es un modal anidado dentro del modal principal. Puedes
 								agregar más contenido aquí.

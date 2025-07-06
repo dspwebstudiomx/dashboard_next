@@ -44,7 +44,7 @@ const Modal = ({
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="modal-title">
-			<div className="bg-gray-100 p-8 rounded-2xl border-2 border-gray-300 shadow-lg transform transition-all duration-300 animate-modalIn z-40 2xl:min-w-screen-xl 2xl:max-w-screen-xl mx-auto">
+			<div className="bg-gray-100 p-8 rounded-2xl border-2 border-gray-300 shadow-lg transform transition-all duration-300 animate-modalIn z-40 2xl:min-w-screen-xl 2xl:max-w-screen-xl mx-auto dark:bg-gray-800 dark:border-gray-600">
 				<div className="flex justify-end">
 					<Button
 						icon={<IoMdClose className="text-4xl font-bold" />} // Icono de cerrar

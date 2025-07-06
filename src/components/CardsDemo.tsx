@@ -1,5 +1,6 @@
-import Button from "./Button/Button";
+import { IoEnterOutline } from "react-icons/io5";
 import Card from "./Cards/Card";
+import HandleModalComponent from "./Modal/HandleModalComponent";
 import Paragraph from "./Paragraph/Paragraph";
 import H2 from "./Title/H2";
 import H6 from "./Title/H6";
@@ -29,7 +30,42 @@ const CardsDemo = () => {
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					</Paragraph>
-					<Button text="Botón de acción" variant="primary" className="mt-4" />
+					<HandleModalComponent
+						icon={<IoEnterOutline className="text-2xl" />}
+						// icon={""}
+						type={"button"}
+						text={"Abrir Modal Principal"}
+						modalTitle={"Modal Principal"}
+						variant={"normal"}>
+						<Paragraph align="justify">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+							nulla reiciendis, commodi adipisci, facilis consequatur aliquid
+							aperiam velit maxime sequi ad eveniet. Magnam itaque fugit atque,
+							non excepturi quas laborios am, qui quod corrupti suscipit
+							architecto. Voluptates odit corporis excepturi, doloribus ratione
+							aperiam veniam nulla nam, natus, itaque saepe at? Libero quibusdam
+							iste, pariatur voluptate atque, magnam inventore quae accusantium
+							assumenda voluptas velit eos veritatis cumque incidunt
+							necessitatibus minus. Ad dignissimos animi voluptate, distinctio
+							ullam quae magni, mollitia officiis perferendis laudantium quasi
+							aliquid totam exercitationem culpa! Illum doloribus ea dignissimos
+							explicabo, consequatur quaerat vitae neque sunt incidunt possimus
+							fugiat rerum veritatis!
+						</Paragraph>
+						<div className="flex flex-col gap-4 mt-4 items-end">
+							<HandleModalComponent
+								icon={<IoEnterOutline className="text-2xl" />}
+								type={"button"}
+								text={""}
+								modalTitle={"Modal Anidado"}
+								variant="outline">
+								<div>
+									Este es un modal anidado dentro del modal principal. Puedes
+									agregar más contenido aquí.
+								</div>
+							</HandleModalComponent>
+						</div>
+					</HandleModalComponent>
 				</Card>
 			</div>
 		</>

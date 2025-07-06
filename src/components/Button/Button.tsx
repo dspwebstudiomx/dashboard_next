@@ -22,6 +22,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 		| "square"
 		| "pill"
 		| "shadow"
+		| "warning"
+		| "normal"
 		| "flat";
 	className?: string;
 	type?: "button" | "submit" | "reset";
@@ -33,17 +35,20 @@ const baseStyles = "px-4 py-3 rounded-xl font-semibold transition-color";
 const variants = {
 	primary:
 		"bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 border-1 border-primary-dark dark:border-primary-light",
+	normal:
+		"text-blue-500 hover:bg-blue-700 focus:ring-blue-500 border-1 border-primary-dark dark:border-primary-light",
 	secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-400",
 	danger: "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
 	outline:
-		"border border-gray-300 text-gray-800 hover:bg-gray-100 focus:ring-gray-400",
+		"border border-gray-300 text-gray-800 hover:bg-gray-100 focus:ring-gray-400 dark:border-gray-300 dark:text-gray-300 dark:hover:bg-gray-700",
 	ghost: "text-gray-800 hover:bg-gray-100 focus:ring-gray-400",
-	link: "text-blue-600 hover:text-blue-700 focus:ring-blue-500 underline",
+	link: "text-blue-600 hover:text-blue-700 focus:ring-blue-500 underline underline-offset-5 underline-blue-600",
 	disabled:
 		"bg-gray-300 text-gray-500 cursor-not-allowed opacity-50 pointer-events-none",
 	active: "bg-blue-700 text-white shadow-inner",
 	loading: "bg-gray-400 text-white cursor-wait opacity-75 pointer-events-none",
 	icon: "flex items-center justify-center p-2 text-blue-600",
+	warning: "flex items-center justify-center p-2 text-red-600",
 	text: "text-gray-800 hover:text-gray-900 focus:ring-gray-400",
 	block:
 		"w-full text-center bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
@@ -63,7 +68,7 @@ const types: Record<string, "button" | "submit" | "reset"> = {
 };
 
 export default function Button({
-	text,
+	text = " ", // Default text to avoid undefined
 	onClick,
 	variant = "primary",
 	className = "",
