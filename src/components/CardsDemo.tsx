@@ -36,7 +36,7 @@ const CardsDemo = () => {
 						type={"button"}
 						text={"Abrir Modal Principal"}
 						modalTitle={"Modal Principal"}
-						variant={"normal"}>
+						variant={"primary"}>
 						<Paragraph align="justify">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
 							nulla reiciendis, commodi adipisci, facilis consequatur aliquid
@@ -56,9 +56,9 @@ const CardsDemo = () => {
 							<HandleModalComponent
 								icon={<IoEnterOutline className="text-2xl" />}
 								type={"button"}
-								text={""}
+								text={"Abrir Modal Anidado"}
 								modalTitle={"Modal Anidado"}
-								variant="outline">
+								variant="primary">
 								<div>
 									Este es un modal anidado dentro del modal principal. Puedes
 									agregar más contenido aquí.

@@ -1,6 +1,5 @@
 import Button from "@/components/Button/Button";
 import HandleModalComponent from "@/components/Modal/HandleModalComponent";
-import { FaFaceAngry } from "react-icons/fa6";
 import { IoEnterOutline } from "react-icons/io5";
 import Paragraph from "./Paragraph/Paragraph";
 import H2 from "./Title/H2";
@@ -10,6 +9,9 @@ export default function ButtonDemo() {
 		<div className="flex flex-col  gap-20 w-full max-w-screen-xl my-32">
 			<H2 align="center">Botones</H2>
 			<div className="flex gap-4 flex-wrap">
+				<Button text="Primary" variant="primary" type="button" icon={""} />
+				<Button text="Secondary" variant="secondary" type="button" />
+				<Button text="Danger" variant="danger" type="button" />
 				<HandleModalComponent
 					icon={<IoEnterOutline className="text-2xl" />}
 					type={"button"}
@@ -45,16 +47,7 @@ export default function ButtonDemo() {
 						</HandleModalComponent>
 					</div>
 				</HandleModalComponent>
-				<Button
-					text="Primary"
-					variant="primary"
-					type="button"
-					icon={<FaFaceAngry />}
-				/>
-
-				<Button text="Secondary" variant="secondary" type="button" />
-				<Button text="Danger" variant="danger" type="button" />
-				<Button text="Optional" variant="outline" type="button" />
+				<Button text="Outline" variant="outline" type="button" />
 				<Button text="Ghost" variant="ghost" type="button" />
 				<Button text="Link" variant="link" type="button" />
 			</div>
