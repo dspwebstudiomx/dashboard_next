@@ -1,10 +1,14 @@
+import H4 from "../Title/H4";
+
 interface CardProps {
 	children: React.ReactNode;
+	title: string;
 }
 
-const Card = ({ children }: CardProps) => {
+const Card = ({ children, title }: CardProps) => {
 	return (
 		<article className=" p-8 bg-gray-0 shadow-xl rounded-3xl flex flex-col gap-8 max-w-screen-lg dark:border-gray-700 dark:border-2">
+			<H4>{title}</H4>
 			{children}
 		</article>
 	);

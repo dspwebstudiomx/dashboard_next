@@ -1,10 +1,10 @@
+import BadgesDemo from "@/components/BadgesDemo";
 import ButtonDemo from "@/components/ButtonDemo";
 import CardsDemo from "@/components/CardsDemo";
 import ColorDemo from "@/components/ColorDemo";
 import Container from "@/components/Containers/Container";
 import ParagraphDemo from "@/components/ParagraphDemo";
 import TitlesDemo from "@/components/TitlesDemo";
-
 export default function App() {
 	return (
 		<Container>
@@ -15,6 +15,7 @@ export default function App() {
 			<ParagraphDemo />
 			<ButtonDemo />
 			<CardsDemo />
+			<BadgesDemo />
 		</Container>
 	);
 }
