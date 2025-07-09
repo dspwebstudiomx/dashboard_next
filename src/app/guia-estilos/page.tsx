@@ -3,6 +3,8 @@ import ButtonDemo from "@/components/ButtonDemo";
 import CardsDemo from "@/components/CardsDemo";
 import ColorDemo from "@/components/ColorDemo";
 import Container from "@/components/Containers/Container";
+import Alert from "@/components/Messages/Alert";
+import MessagesDemo from "@/components/MessagesDemo";
 import ParagraphDemo from "@/components/ParagraphDemo";
 import TitlesDemo from "@/components/TitlesDemo";
 export default function App() {
@@ -16,6 +18,8 @@ export default function App() {
 			<ButtonDemo />
 			<CardsDemo />
 			<BadgesDemo />
+			<MessagesDemo />
+			<Alert />
 		</Container>
 	);
 }
