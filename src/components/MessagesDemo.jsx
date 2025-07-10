@@ -5,14 +5,16 @@ import { useState } from "react";
 import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
 
 const MessagesDemo = () => {
-	const [showConfirmation, setShowConfirmation] = useState(false);
+	const [showConfirmation, setShowConfirmation] = useState(false); // Para controlar la visibilidad del modal de confirmación
 	const [modalType, setModalType] = useState(""); // Para saber qué acción mostrar
 
+	// Función para abrir el modal de confirmación con el tipo de acción
 	const handleOpen = (type) => {
 		setModalType(type);
 		setShowConfirmation(true);
 	};
 
+	// Función para cerrar el modal de confirmación
 	const handleCancel = () => {
 		setShowConfirmation(false);
 	};
@@ -21,8 +23,8 @@ const MessagesDemo = () => {
 	const actionsMap = {
 		eliminar: [
 			{
-				text: "Eliminar",
-				onClick: () => alert("¡Acción de eliminar confirmada!"),
+				text: "Eliminar", // Texto del botón de eliminar
+				onClick: () => alert("¡Acción de eliminar confirmada!"), // Acción al hacer clic
 				variant: "primary",
 				icon: <FaTrash />, // Icono de eliminar
 			},
