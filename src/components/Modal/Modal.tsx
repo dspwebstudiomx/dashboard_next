@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button/Button";
-import H3 from "../Title/H3";
+import H4 from "../Title/H4";
 
 // Extiende el tipo Window para incluir __openModals
 declare global {
@@ -22,16 +22,18 @@ interface ModalProps {
 
 // Componente Modal
 const Modal = ({
-	children,
-	onClose,
-	closeButtonRef,
-	modalTitle,
+	children, // Contenido del modal
+	onClose, // Función para cerrar el modal
+	closeButtonRef, // Referencia para el botón de cerrar
+	modalTitle, // Título del modal
 }: ModalProps) => {
 	useEffect(() => {
-		window.__openModals = (window.__openModals || 0) + 1;
-		document.body.style.overflow = "hidden";
+		window.__openModals = (window.__openModals || 0) + 1; // Incrementa el contador de modales abiertos
+		document.body.style.overflow = "hidden"; // Evita el scroll del body cuando el modal está abierto
 		return () => {
-			window.__openModals = (window.__openModals || 1) - 1;
+			window.__openModals = (window.__openModals || 1) - 1; // Decrementa el contador de modales abiertos
+
+			// Restaura el estilo de overflow del body si no hay más modales abiertos
 			if (window.__openModals <= 0) {
 				document.body.style.overflow = "";
 			}
@@ -45,6 +47,7 @@ const Modal = ({
 			aria-modal="true"
 			aria-labelledby="modal-title">
 			<div className="bg-gray-100 p-8 rounded-2xl border-2 border-gray-300 shadow-lg transform transition-all duration-300 animate-modalIn z-40 2xl:min-w-screen-xl 2xl:max-w-screen-xl mx-auto dark:bg-gray-800 dark:border-gray-600">
+				{/* Botón de cerrar modal */}
 				<div className="flex justify-end">
 					<Button
 						icon={<IoMdClose className="text-4xl font-bold" />} // Icono de cerrar
@@ -53,10 +56,11 @@ const Modal = ({
 						onClick={onClose} // Función para cerrar el modal
 					/>
 				</div>
+				{/* Contenido del modal */}
 				<div className=" flex flex-col gap-8 p-8">
-					<H3 id="modal-title" align="left">
+					<H4 id="modal-title" align="center">
 						{modalTitle}
-					</H3>
+					</H4>
 					<div className="mb-4 flex flex-col gap-8">{children}</div>
 				</div>
 			</div>

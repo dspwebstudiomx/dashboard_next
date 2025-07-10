@@ -4,25 +4,26 @@ import Button from "@/components/Button/Button"; // Componente de botón
 import Modal from "@/components/Modal/Modal"; // Componente de modal
 import useModal from "@/hooks/useModal"; // Hook personalizado para manejar el estado del modal
 import { FaCheckCircle } from "react-icons/fa"; // Icono de confirmación
+import { MdOutlineCancel } from "react-icons/md"; // Icono de cancelación
 
 // Componente Confirmation
 const Confirmation = ({
 	children,
-	modalTitle,
+	// modalTitle,
 	message = "¿Estás seguro de continuar?",
-	onConfirm = () => {},
+	isOpen,
 	onCancel = () => {},
-	isOpen, // Nuevo prop para controlar la visibilidad desde fuera
+	actions = [], // Nuevo prop: array de acciones
 }) => {
-	const { close, closeButtonRef } = useModal(); // Ya no necesitamos open ni isOpen internos
+	const { close, closeButtonRef } = useModal();
 
-	// Manejar confirmación
-	const handleConfirm = () => {
-		onConfirm();
+	// Maneja la acción al hacer clic en un botón de acción
+	const handleAction = (action) => {
+		action.onClick();
 		close();
 	};
 
-	// Manejar cancelación
+	// Maneja la acción de cancelar
 	const handleCancel = () => {
 		onCancel();
 		close();
@@ -32,22 +33,32 @@ const Confirmation = ({
 
 	return (
 		<Modal
-			onClose={close}
+			onClose={close || onClose}
 			closeButtonRef={closeButtonRef}
-			modalTitle={modalTitle}>
-			<div className="flex flex-col items-center">
+			modalTitle={""} // Nota: no se usa para este caso
+		>
+			<div className="flex flex-col items-center gap-8">
 				<div className="text-center flex gap-2">
 					<FaCheckCircle className="text-primary-dark text-4xl mb-2 animate-bounce" />
 					<p className="text-center text-lg font-semibold mb-4">{message}</p>
 				</div>
 				<div className="flex gap-4">
-					<Button onClick={handleConfirm} text="Confirmar" variant="primary" />
-					<button
-						className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition"
+					{actions.map((action, idx) => (
+						<Button
+							key={idx}
+							text={action.text}
+							variant={action.variant || "primary"}
+							onClick={() => handleAction(action)}
+							icon={action.icon}
+						/>
+					))}
+					<Button
 						onClick={handleCancel}
-						ref={closeButtonRef}>
-						Cancelar
-					</button>
+						ref={closeButtonRef}
+						text="Cancelar"
+						variant="outline"
+						icon={<MdOutlineCancel className="text-2xl" />}
+					/>
 				</div>
 				{children}
 			</div>
