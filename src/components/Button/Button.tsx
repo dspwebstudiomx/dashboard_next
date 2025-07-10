@@ -2,7 +2,6 @@ import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	text?: string;
-	onClick?: () => void;
 	variant?:
 		| "primary"
 		| "secondary"
@@ -30,7 +29,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	icon?: React.ReactNode; // Nuevo prop opcional para ícono
 }
 
-const baseStyles = "px-6 py-3 rounded-xl font-semibold transition-color";
+const baseStyles =
+	"px-6 py-3 rounded-xl font-semibold transition-color hover:scale-105 focus:scale-105";
 
 const variants = {
 	active: "bg-blue-700 text-white shadow-inner",
@@ -69,27 +69,34 @@ const types: Record<string, "button" | "submit" | "reset"> = {
 	reset: "reset",
 };
 
-export default function Button({
-	text = " ", // Default text to avoid undefined
-	onClick,
-	variant = "primary",
-	className = "",
-	type = "button",
-	ref,
-	icon,
-	...rest
-}: ButtonProps & { ref?: React.Ref<HTMLButtonElement> }) {
-	return (
-		<button
-			ref={ref}
-			type={types[type] || "button"}
-			className={`${baseStyles} ${variants[variant]} ${className}`}
-			onClick={onClick}
-			{...rest}>
-			<span className="flex items-center justify-center">
-				{icon && <span className="mr-2 flex-shrink-0">{icon}</span>}
-				{text}
-			</span>
-		</button>
-	);
-}
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+	(
+		{
+			text = " ", // Default text to avoid undefined
+			variant = "primary",
+			className = "",
+			type = "button",
+			icon,
+			children,
+			...rest
+		},
+		ref
+	) => {
+		return (
+			<button
+				ref={ref}
+				type={types[type] || "button"}
+				className={`${baseStyles} ${variants[variant]} ${className}`}
+				{...rest}>
+				<span className="flex items-center justify-center">
+					{icon && <span className="mr-2 flex-shrink-0">{icon}</span>}
+					{text}
+					{children}
+				</span>
+			</button>
+		);
+	}
+);
+Button.displayName = "Button";
+
+export default Button;

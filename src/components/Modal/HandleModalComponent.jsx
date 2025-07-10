@@ -22,6 +22,7 @@ const HandleModalComponent = ({
 				type={type}
 				onClick={open}
 				icon={icon}
+				ref={closeButtonRef}
 				variant={variant}
 			/>
 			{isOpen && (

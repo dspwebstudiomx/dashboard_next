@@ -46,7 +46,7 @@ const Modal = ({
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="modal-title">
-			<div className="bg-gray-100 p-8 rounded-2xl border-2 border-gray-300 shadow-lg transform transition-all duration-300 animate-modalIn z-40 2xl:min-w-screen-xl 2xl:max-w-screen-xl mx-auto dark:bg-gray-800 dark:border-gray-600">
+			<div className="bg-gray-100 p-8 rounded-2xl border-2 border-gray-300 shadow-lg transform transition-all duration-300 animate-modalIn z-40 2xl:min-w-screen-lg 2xl:max-w-screen-lg mx-auto dark:bg-gray-800 dark:border-gray-600">
 				{/* Botón de cerrar modal */}
 				<div className="flex justify-end">
 					<Button
@@ -54,11 +54,12 @@ const Modal = ({
 						variant="icon" // Variante del botón para icono
 						ref={closeButtonRef} // Referencia para el botón de cerrar
 						onClick={onClose} // Función para cerrar el modal
+						type="button" // Tipo de botón
 					/>
 				</div>
 				{/* Contenido del modal */}
 				<div className=" flex flex-col gap-8 p-8">
-					<H4 id="modal-title" align="center">
+					<H4 id="modal-title" align="left">
 						{modalTitle}
 					</H4>
 					<div className="mb-4 flex flex-col gap-8">{children}</div>

@@ -36,13 +36,13 @@ const Confirmation = ({
 			onClose={close || onClose}
 			closeButtonRef={closeButtonRef}
 			modalTitle={""} // Nota: no se usa para este caso
-		>
+			aria-label="Confirmación">
 			<div className="flex flex-col items-center gap-8">
-				<div className="text-center flex gap-2">
-					<FaCheckCircle className="text-primary-dark text-4xl mb-2 animate-bounce" />
+				<div className="text-center flex gap-4">
+					<FaCheckCircle className="text-primary-dark text-4xl mb-2 animate-pulse dark:text-primary" />
 					<p className="text-center text-lg font-semibold mb-4">{message}</p>
 				</div>
-				<div className="flex gap-4">
+				<div className="flex gap-6">
 					{actions.map((action, idx) => (
 						<Button
 							key={idx}

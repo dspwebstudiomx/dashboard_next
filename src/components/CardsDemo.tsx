@@ -9,47 +9,137 @@ const CardsDemo = () => {
 		<section className="flex flex-col gap-12">
 			<H2 align="center">Tarjetas</H2>
 			<div className="grid grid-cols-3 gap-12">
-				<Card title="Tarjeta Modal">
+				<Card title="Tarjeta Modal Ejemplo">
 					<Paragraph align="inherit">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					</Paragraph>
-					<HandleModalComponent
-						icon={<IoEnterOutline className="text-2xl" />}
-						// icon={""}
-						type={"button"}
-						text={"Abrir Modal Principal"}
-						modalTitle={"Modal Principal"}
-						variant={"primary"}>
-						<Paragraph align="justify">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-							nulla reiciendis, commodi adipisci, facilis consequatur aliquid
-							aperiam velit maxime sequi ad eveniet. Magnam itaque fugit atque,
-							non excepturi quas laborios am, qui quod corrupti suscipit
-							architecto. Voluptates odit corporis excepturi, doloribus ratione
-							aperiam veniam nulla nam, natus, itaque saepe at? Libero quibusdam
-							iste, pariatur voluptate atque, magnam inventore quae accusantium
-							assumenda voluptas velit eos veritatis cumque incidunt
-							necessitatibus minus. Ad dignissimos animi voluptate, distinctio
-							ullam quae magni, mollitia officiis perferendis laudantium quasi
-							aliquid totam exercitationem culpa! Illum doloribus ea dignissimos
-							explicabo, consequatur quaerat vitae neque sunt incidunt possimus
-							fugiat rerum veritatis!
-						</Paragraph>
-						<div className="flex flex-col gap-4 mt-4 items-end">
-							<HandleModalComponent
-								icon={<IoEnterOutline className="text-2xl" />}
-								type={"button"}
-								text={"Abrir Modal Anidado"}
-								modalTitle={"Modal Anidado"}
-								variant="primary">
-								<div>
-									Este es un modal anidado dentro del modal principal. Puedes
-									agregar más contenido aquí.
-								</div>
-							</HandleModalComponent>
-						</div>
-					</HandleModalComponent>
+					<div className="flex flex-col gap-4 mt-4 items-center">
+						<HandleModalComponent
+							icon={<IoEnterOutline className="text-2xl" />}
+							// icon={""}
+							type={"button"}
+							text={"Abrir Modal Principal"}
+							modalTitle={"Modal Principal"}
+							variant={"primary"}>
+							<Paragraph align="justify">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+								nulla reiciendis, commodi adipisci, facilis consequatur aliquid
+								aperiam velit maxime sequi ad eveniet. Magnam itaque fugit
+								atque, non excepturi quas laborios am, qui quod corrupti
+								suscipit architecto. Voluptates odit corporis excepturi,
+								doloribus ratione aperiam veniam nulla nam, natus, itaque saepe
+								at? Libero quibusdam iste, pariatur voluptate atque, magnam
+								inventore quae accusantium assumenda voluptas velit eos
+								veritatis cumque incidunt necessitatibus minus. Ad dignissimos
+								animi voluptate, distinctio ullam quae magni, mollitia officiis
+								perferendis laudantium quasi aliquid totam exercitationem culpa!
+								Illum doloribus ea dignissimos explicabo, consequatur quaerat
+								vitae neque sunt incidunt possimus fugiat rerum veritatis!
+							</Paragraph>
+							<div className="flex flex-col gap-4 mt-4 items-end">
+								<HandleModalComponent
+									icon={<IoEnterOutline className="text-2xl" />}
+									type={"button"}
+									text={"Abrir Modal Anidado"}
+									modalTitle={"Modal Anidado"}
+									variant="primary">
+									<div>
+										Este es un modal anidado dentro del modal principal. Puedes
+										agregar más contenido aquí.
+									</div>
+								</HandleModalComponent>
+							</div>
+						</HandleModalComponent>
+					</div>
+				</Card>
+				<Card title="Tarjeta Modal Ejemplo">
+					<Paragraph align="inherit">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</Paragraph>
+					<div className="flex flex-col gap-4 mt-4 items-center">
+						<HandleModalComponent
+							icon={<IoEnterOutline className="text-2xl" />}
+							// icon={""}
+							type={"button"}
+							text={"Abrir Modal Principal"}
+							modalTitle={"Modal Principal"}
+							variant={"primary"}>
+							<Paragraph align="justify">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+								nulla reiciendis, commodi adipisci, facilis consequatur aliquid
+								aperiam velit maxime sequi ad eveniet. Magnam itaque fugit
+								atque, non excepturi quas laborios am, qui quod corrupti
+								suscipit architecto. Voluptates odit corporis excepturi,
+								doloribus ratione aperiam veniam nulla nam, natus, itaque saepe
+								at? Libero quibusdam iste, pariatur voluptate atque, magnam
+								inventore quae accusantium assumenda voluptas velit eos
+								veritatis cumque incidunt necessitatibus minus. Ad dignissimos
+								animi voluptate, distinctio ullam quae magni, mollitia officiis
+								perferendis laudantium quasi aliquid totam exercitationem culpa!
+								Illum doloribus ea dignissimos explicabo, consequatur quaerat
+								vitae neque sunt incidunt possimus fugiat rerum veritatis!
+							</Paragraph>
+							<div className="flex flex-col gap-4 mt-4 items-end">
+								<HandleModalComponent
+									icon={<IoEnterOutline className="text-2xl" />}
+									type={"button"}
+									text={"Abrir Modal Anidado"}
+									modalTitle={"Modal Anidado"}
+									variant="primary">
+									<div>
+										Este es un modal anidado dentro del modal principal. Puedes
+										agregar más contenido aquí.
+									</div>
+								</HandleModalComponent>
+							</div>
+						</HandleModalComponent>
+					</div>
+				</Card>
+				<Card title="Tarjeta Modal Ejemplo">
+					<Paragraph align="inherit">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</Paragraph>
+					<div className="flex flex-col gap-4 mt-4 items-center">
+						<HandleModalComponent
+							icon={<IoEnterOutline className="text-2xl" />}
+							// icon={""}
+							type={"button"}
+							text={"Abrir Modal Principal"}
+							modalTitle={"Modal Principal"}
+							variant={"primary"}>
+							<Paragraph align="justify">
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+								nulla reiciendis, commodi adipisci, facilis consequatur aliquid
+								aperiam velit maxime sequi ad eveniet. Magnam itaque fugit
+								atque, non excepturi quas laborios am, qui quod corrupti
+								suscipit architecto. Voluptates odit corporis excepturi,
+								doloribus ratione aperiam veniam nulla nam, natus, itaque saepe
+								at? Libero quibusdam iste, pariatur voluptate atque, magnam
+								inventore quae accusantium assumenda voluptas velit eos
+								veritatis cumque incidunt necessitatibus minus. Ad dignissimos
+								animi voluptate, distinctio ullam quae magni, mollitia officiis
+								perferendis laudantium quasi aliquid totam exercitationem culpa!
+								Illum doloribus ea dignissimos explicabo, consequatur quaerat
+								vitae neque sunt incidunt possimus fugiat rerum veritatis!
+							</Paragraph>
+							<div className="flex flex-col gap-4 mt-4 items-end">
+								<HandleModalComponent
+									icon={<IoEnterOutline className="text-2xl" />}
+									type={"button"}
+									text={"Abrir Modal Anidado"}
+									modalTitle={"Modal Anidado"}
+									variant="primary">
+									<div>
+										Este es un modal anidado dentro del modal principal. Puedes
+										agregar más contenido aquí.
+									</div>
+								</HandleModalComponent>
+							</div>
+						</HandleModalComponent>
+					</div>
 				</Card>
 			</div>
 		</section>
