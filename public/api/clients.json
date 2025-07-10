@@ -1,0 +1,149 @@
+[
+	{
+		"id": 1,
+		"name": "Daniel",
+		"lastName": "Pérez",
+		"lastName2": "Bernal",
+		"company": "dspwebstudio",
+		"email": "danielperezber@hotmail.com",
+		"phone": "+57 301 1234567",
+		"address": "Calle 123 #45-67",
+		"city": "Bogotá",
+		"state": "Cundinamarca",
+		"country": "Colombia",
+		"postalCode": "110111",
+		"website": "https://danielperezber.com",
+		"socialMedia": {
+			"facebook": "https://facebook.com/danielperezber",
+			"twitter": "https://twitter.com/danielperezber",
+			"instagram": "https://instagram.com/danielperezber",
+			"linkedin": "https://linkedin.com/in/danielperezber",
+			"youtube": "https://youtube.com/danielperezber",
+			"tiktok": "https://tiktok.com/@danielperezber",
+			"whatsapp": "https://wa.me/573011234567",
+			"telegram": "https://t.me/danielperezber",
+			"discord": "https://discord.com/users/danielperezber"
+		},
+		"createdAt": "2023-10-01T12:00:00Z",
+		"updatedAt": "2023-10-01T12:00:00Z",
+		"isActive": true,
+		"isVerified": true,
+		"isBlocked": false,
+		"isDeleted": false,
+		"notes": "Cliente VIP, preferencia por contacto por WhatsApp.",
+		"tags": ["VIP", "Preferencia WhatsApp"],
+		"industry": "Tecnología",
+		"contactPerson": {
+			"name": "Daniel Pérez",
+			"email": "danielperezber@hotmail.com",
+			"phone": "+57 301 1234567"
+		},
+		"preferredLanguage": "es",
+		"paymentTerms": "30 días",
+		"clientType": "Empresa",
+		"riskLevel": "Bajo",
+		"referredBy": "Google",
+		"anniversaryDate": "2023-10-01",
+		"logoUrl": "https://danielperezber.com/logo.png",
+		"projects": [
+			{
+				"id": 1,
+				"name": "Proyecto A",
+				"description": "Descripción del Proyecto A",
+				"status": "En progreso",
+				"startDate": "2023-09-01",
+				"endDate": "2023-12-31",
+				"budget": 10000,
+				"currency": "USD",
+				"cost": 14000,
+				"currencySymbol": "$",
+				"createdAt": "2023-09-01T12:00:00Z",
+				"updatedAt": "2023-09-01T12:00:00Z",
+				"services": ["Desarrollo Web", "Consultoría Web"],
+				"sections": ["Inicio", "Contacto"],
+				"projectType": "Web",
+				"progress": 60,
+				"milestones": [
+					{
+						"name": "Entrega inicial",
+						"date": "2023-10-01",
+						"status": "Completado"
+					},
+					{
+						"name": "Entrega final",
+						"date": "2023-12-31",
+						"status": "Pendiente"
+					}
+				],
+				"clientFeedback": "Muy satisfecho con el avance",
+				"repositoryUrl": "https://github.com/danielperezber/proyecto-a",
+				"isArchived": false,
+				"technologies": ["Next.js", "React", "TailwindCSS"],
+				"estimatedHours": 120,
+				"actualHours": 80,
+				"tasks": [
+					{
+						"id": 1,
+						"name": "Tarea 1",
+						"description": "Descripción de la tarea 1",
+						"status": "Pendiente",
+						"dueDate": "2023-10-15",
+						"priority": "Alta",
+						"createdAt": "2023-09-01T12:00:00Z",
+						"updatedAt": "2023-09-01T12:00:00Z",
+						"assignedTo": 1,
+						"dependencies": [],
+						"completedAt": null,
+						"comments": [
+							{
+								"author": "Juan Pérez",
+								"date": "2023-09-10",
+								"text": "Tarea iniciada."
+							}
+						]
+					},
+					{
+						"id": 2,
+						"name": "Tarea 2",
+						"description": "Descripción de la tarea 2",
+						"status": "En progreso",
+						"dueDate": "2023-11-01",
+						"priority": "Media",
+						"createdAt": "2023-09-01T12:00:00Z",
+						"updatedAt": "2023-09-01T12:00:00Z"
+					}
+				],
+				"teamMembers": [
+					{
+						"id": 1,
+						"name": "Juan Pérez",
+						"role": "Desarrollador",
+						"email": "",
+						"phone": "+57 300 1234567",
+						"isActive": true,
+						"createdAt": "2023-09-01T12:00:00Z",
+						"updatedAt": "2023-09-01T12:00:00Z"
+					}
+				],
+				"documents": [
+					{
+						"type": "Cotización",
+						"url": "https://danielperezber.com/cotizacion.pdf"
+					},
+					{
+						"type": "Contrato",
+						"url": "https://danielperezber.com/contrato.pdf"
+					},
+					{
+						"type": "Factura",
+						"url": "https://danielperezber.com/factura.pdf"
+					},
+					{
+						"type": "Carta de Entrega",
+						"url": "https://danielperezber.com/carta-entrega.pdf"
+					}
+				]
+			}
+		]
+	}
+]
