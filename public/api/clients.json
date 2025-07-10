@@ -63,6 +63,7 @@
 				"sections": ["Inicio", "Contacto"],
 				"projectType": "Web",
 				"progress": 60,
+				"notes": "Proyecto en marcha, se espera finalizar a tiempo.",
 				"milestones": [
 					{
 						"name": "Entrega inicial",
@@ -91,7 +92,7 @@
 						"priority": "Alta",
 						"createdAt": "2023-09-01T12:00:00Z",
 						"updatedAt": "2023-09-01T12:00:00Z",
-						"assignedTo": 1,
+						"assignedTo": "Daniel Pérez",
 						"dependencies": [],
 						"completedAt": null,
 						"comments": [

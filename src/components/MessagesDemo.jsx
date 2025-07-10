@@ -39,7 +39,7 @@ const MessagesDemo = () => {
 			{
 				text: "Eliminar cliente",
 				onClick: () => handleDelete("cliente"),
-				variant: "primary",
+				variant: "outline",
 				icon: <FaTrash />,
 			},
 		],
@@ -47,7 +47,7 @@ const MessagesDemo = () => {
 			{
 				text: "Eliminar tarea",
 				onClick: () => handleDelete("tarea"),
-				variant: "primary",
+				variant: "outline",
 				icon: <FaTrash />,
 			},
 		],
@@ -55,7 +55,7 @@ const MessagesDemo = () => {
 			{
 				text: "Eliminar proyecto",
 				onClick: () => handleDelete("proyecto"),
-				variant: "primary",
+				variant: "outline",
 				icon: <FaTrash />,
 			},
 		],
@@ -116,31 +116,37 @@ const MessagesDemo = () => {
 					text="Eliminar tarea"
 					onClick={() => handleOpen("eliminar_tarea")}
 					icon={<FaTrash className="text-lg" />}
+					variant="outline"
 				/>
 				<Button
 					text="Eliminar cliente"
 					onClick={() => handleOpen("eliminar_cliente")}
 					icon={<FaTrash className="text-lg" />}
+					variant="outline"
 				/>
 				<Button
 					text="Eliminar proyecto"
 					onClick={() => handleOpen("eliminar_proyecto")}
 					icon={<FaTrash className="text-lg" />}
+					variant="outline"
 				/>
 				<Button
 					text="Editar tarea"
 					onClick={() => handleOpen("editar_tarea")}
 					icon={<FaEdit className="text-lg" />}
+					variant="secondary"
 				/>
 				<Button
 					text="Editar cliente"
 					onClick={() => handleOpen("editar_cliente")}
 					icon={<FaEdit className="text-lg" />}
+					variant="secondary"
 				/>
 				<Button
 					text="Editar proyecto"
 					onClick={() => handleOpen("editar_proyecto")}
 					icon={<FaEdit className="text-lg" />}
+					variant="secondary"
 				/>
 				<Button
 					text="Crear tarea"

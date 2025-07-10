@@ -6,9 +6,9 @@
 	--color-primary: #0070f3;
 	--color-primary-light: #e0f2ff;
 	--color-primary-dark: #005bb5;
-	--color-secondary: rgba(10, 10, 10, 0.87);
-	--color-secondary-light: rgba(10, 10, 10, 0.4);
-	--color-secondary-dark: rgba(10, 10, 10, 1);
+	--color-secondary: #4c9bf7;
+	--color-secondary-light: #cce4ff;
+	--color-secondary-dark: #003f7f;
 	--color-accent: #ff4081;
 	--color-accent-light: #ff80ab;
 	--color-accent-dark: #c51162;
@@ -46,7 +46,7 @@
 
 body {
 	background: var(--background);
-	color: var(--foreground);
+	/* color: var(--foreground); */
 	font-family: Arial, Helvetica, sans-serif;
 	scrollbar-color: var(--color-primary) var(--background); /* Firefox */
 	scrollbar-width: thin;

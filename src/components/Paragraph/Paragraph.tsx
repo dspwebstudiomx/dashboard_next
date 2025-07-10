@@ -16,7 +16,7 @@ interface ParagraphProps {
 const Paragraph: React.FC<ParagraphProps> = ({ children, align }) => {
 	return (
 		<p
-			className={`text-${align} text-secondary text-base max-w-screen-xl text-pretty first-letter:uppercase dark:text-white`}>
+			className={`text-${align} text-text-secondary text-base max-w-screen-xl text-pretty first-letter:uppercase dark:text-white`}>
 			{children}
 		</p>
 	);

@@ -54,7 +54,7 @@ const variants = {
 		"bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 border-2 border-blue-300",
 	rounded: "rounded-full",
 	secondary:
-		"bg-primary/70 text-gray-100 border-2 border-primary/90 hover:bg-primary/80 focus:ring-primary/80",
+		"bg-secondary text-gray-100 border-2 border-primary/90 hover:bg-primary/80 focus:ring-primary/80",
 	shadow: "shadow-md hover:shadow-lg focus:shadow-lg",
 	small: "px-2 py-1 text-sm",
 	square: "rounded-none",
