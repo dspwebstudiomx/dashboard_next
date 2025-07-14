@@ -15,8 +15,8 @@ const badgeVariants = {
 	primary: "bg-primary  text-white border border-blue-700",
 	secondary: "bg-secondary text-white border border-primary/90",
 	light: "bg-gray-200 text-gray-800 border border-gray-300",
-	dark: "bg-gray-800 text-white border border-gray-900",
-	danger: "bg-danger text-red-900 border border-red-900",
+	dark: "bg-gray-700 text-white border border-gray-900 dark:border-gray-600",
+	danger: "bg-danger text-red-100 border border-red-100",
 };
 
 const icons = {
@@ -25,14 +25,17 @@ const icons = {
 	error: <FaTimesCircle className="mr-1" />,
 	info: <FaInfoCircle className="mr-1" />,
 	danger: <FaExclamationCircle className="mr-1" />,
-	primary: <FaCheckCircle className="mr-1" />,
+	primary: null,
 	neutral: null,
+	secondary: null,
+	light: null,
+	dark: null,
 };
 
 const Badge = ({ children, variant = "neutral", icon = true }) => {
 	return (
 		<span
-			className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium gap-1 ${badgeVariants[variant]}`}>
+			className={`inline-flex items-center justify-center px-3 py-1 rounded-full text-sm font-medium gap-1 min-w-30 h-10 ${badgeVariants[variant]}`}>
 			{icon && icons[variant]}
 			{children}
 		</span>
