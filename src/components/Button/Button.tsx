@@ -30,7 +30,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const baseStyles =
-	"px-6 py-3 rounded-xl font-semibold transition-color hover:scale-105 focus:scale-105";
+	"px-6 py-3 rounded-xl font-semibold transition-color hover:scale-105 focus:scale-105 text-sm";
 
 const variants = {
 	active: "bg-blue-700 text-white shadow-inner",
@@ -60,7 +60,7 @@ const variants = {
 	square: "rounded-none",
 	text: "text-gray-800 hover:text-gray-900 focus:ring-gray-400",
 	warning:
-		"flex items-center justify-center p-2 text-white border-2 border-amber-400 bg-amber-300 hover:bg-amber-500 focus:ring-red-500",
+		"flex items-center justify-center p-2 text-white border-2 border-amber-400 dark:border-amber-100 bg-amber-300 dark:hover:bg-amber-400 hover:bg-amber-400 focus:ring-red-500",
 };
 
 const types: Record<string, "button" | "submit" | "reset"> = {

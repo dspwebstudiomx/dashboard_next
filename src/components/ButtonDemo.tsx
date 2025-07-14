@@ -6,7 +6,7 @@ export default function ButtonDemo() {
 		<div className="flex flex-col  gap-20 w-full max-w-screen-xl my-32">
 			<H2 align="center">Botones</H2>
 			<div className="flex gap-4 flex-wrap items-center justify-center">
-				<Button text="Primary" variant="primary" type="button" icon={""} />
+				<Button text="Primary" variant="primary" type="button" />
 				<Button text="Secondary" variant="secondary" type="button" />
 				<Button text="Danger" variant="danger" type="button" />
 				<Button text="Warning" variant="warning" type="button" />

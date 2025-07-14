@@ -7,7 +7,7 @@ import {
 
 const badgeVariants = {
 	success: "bg-green-100 text-green-800 border border-green-300",
-	warning: "bg-yellow-100 text-yellow-800 border border-yellow-300",
+	warning: "bg-yellow-300 text-amber-700 border border-yellow-700",
 	error: "bg-red-100 text-red-800 border border-red-300",
 	info: "bg-blue-100 text-blue-800 border border-blue-300",
 	neutral: "bg-gray-100 text-gray-800 border border-gray-300",
@@ -16,7 +16,7 @@ const badgeVariants = {
 	secondary: "bg-secondary text-white border border-primary/90",
 	light: "bg-gray-200 text-gray-800 border border-gray-300",
 	dark: "bg-gray-800 text-white border border-gray-900",
-	danger: "bg-danger text-white border border-red-700",
+	danger: "bg-danger text-red-900 border border-red-900",
 };
 
 const icons = {
