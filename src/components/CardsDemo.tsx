@@ -8,7 +8,7 @@ const CardsDemo = () => {
 	return (
 		<section className="flex flex-col gap-12">
 			<H2 align="center">Tarjetas</H2>
-			<div className="grid grid-cols-3 gap-12">
+			<div className="grid md:grid-cols-2 xl:grid-cols-3 gap-12">
 				<Card title="Tarjeta Modal Ejemplo">
 					<Paragraph align="inherit">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
