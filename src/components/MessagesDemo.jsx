@@ -1,10 +1,12 @@
 "use client";
 import Button from "@/components/Button/Button";
 import Confirmation from "@/components/Messages/Confirmation";
+import { useClients } from "@/hooks/useClients";
 import { useState } from "react";
 import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
 
 const MessagesDemo = () => {
+	const { clients, getClients } = useClients();
 	const [showConfirmation, setShowConfirmation] = useState(false); // Para controlar la visibilidad del modal de confirmación
 	const [modalType, setModalType] = useState(""); // Para saber qué acción mostrar
 
@@ -22,7 +24,7 @@ const MessagesDemo = () => {
 	// Funciones genéricas para cada acción y entidad
 	const handleDelete = (entity) => {
 		alert(`Eliminando ${entity}...`);
-		// Aquí puedes agregar la lógica real de eliminación
+		// Lógica eliminar cliente
 	};
 	const handleEdit = (entity) => {
 		alert(`Editando ${entity}...`);
@@ -33,28 +35,28 @@ const MessagesDemo = () => {
 		// Aquí puedes agregar la lógica real de creación
 	};
 
+	// Funciones para Cliente
+	const handleDeleteClient = () => handleDelete("cliente");
+	const handleEditClient = () => handleEdit("cliente");
+	const handleCreateClient = () => handleCreate("cliente");
+
+	// Funciones para Tarea
+	const handleDeleteTask = () => handleDelete("tarea");
+	const handleEditTask = () => handleEdit("tarea");
+	const handleCreateTask = () => handleCreate("tarea");
+
+	// Funciones para Proyecto
+	const handleDeleteProject = () => handleDelete("proyecto");
+	const handleEditProject = () => handleEdit("proyecto");
+	const handleCreateProject = () => handleCreate("proyecto");
+
 	// Acciones genéricas para demo
 	const actionsMap = {
+		// Cliente
 		eliminar_cliente: [
 			{
 				text: "Eliminar cliente",
-				onClick: () => handleDelete("cliente"),
-				variant: "outline",
-				icon: <FaTrash />,
-			},
-		],
-		eliminar_tarea: [
-			{
-				text: "Eliminar tarea",
-				onClick: () => handleDelete("tarea"),
-				variant: "outline",
-				icon: <FaTrash />,
-			},
-		],
-		eliminar_proyecto: [
-			{
-				text: "Eliminar proyecto",
-				onClick: () => handleDelete("proyecto"),
+				onClick: () => handleDeleteClient(),
 				variant: "outline",
 				icon: <FaTrash />,
 			},
@@ -62,23 +64,7 @@ const MessagesDemo = () => {
 		editar_cliente: [
 			{
 				text: "Editar cliente",
-				onClick: () => handleEdit("cliente"),
-				variant: "primary",
-				icon: <FaEdit />,
-			},
-		],
-		editar_tarea: [
-			{
-				text: "Editar tarea",
-				onClick: () => handleEdit("tarea"),
-				variant: "primary",
-				icon: <FaEdit />,
-			},
-		],
-		editar_proyecto: [
-			{
-				text: "Editar proyecto",
-				onClick: () => handleEdit("proyecto"),
+				onClick: () => handleEditClient(),
 				variant: "primary",
 				icon: <FaEdit />,
 			},
@@ -86,23 +72,59 @@ const MessagesDemo = () => {
 		crear_cliente: [
 			{
 				text: "Crear cliente",
-				onClick: () => handleCreate("cliente"),
+				onClick: () => handleCreateClient(),
 				variant: "primary",
 				icon: <FaPlus />,
+			},
+		],
+
+		// Tarea
+		eliminar_tarea: [
+			{
+				text: "Eliminar tarea",
+				onClick: () => handleDeleteTask(),
+				variant: "outline",
+				icon: <FaTrash />,
+			},
+		],
+		editar_tarea: [
+			{
+				text: "Editar tarea",
+				onClick: () => handleEditTask(),
+				variant: "primary",
+				icon: <FaEdit />,
 			},
 		],
 		crear_tarea: [
 			{
 				text: "Crear tarea",
-				onClick: () => handleCreate("tarea"),
+				onClick: () => handleCreateTask(),
 				variant: "primary",
 				icon: <FaPlus />,
+			},
+		],
+
+		// Proyecto
+		eliminar_proyecto: [
+			{
+				text: "Eliminar proyecto",
+				onClick: () => handleDeleteProject(),
+				variant: "outline",
+				icon: <FaTrash />,
+			},
+		],
+		editar_proyecto: [
+			{
+				text: "Editar proyecto",
+				onClick: () => handleEditProject(),
+				variant: "primary",
+				icon: <FaEdit />,
 			},
 		],
 		crear_proyecto: [
 			{
 				text: "Crear proyecto",
-				onClick: () => handleCreate("proyecto"),
+				onClick: () => handleCreateProject(),
 				variant: "primary",
 				icon: <FaPlus />,
 			},
@@ -164,6 +186,19 @@ const MessagesDemo = () => {
 					icon={<FaPlus className="text-lg" />}
 				/>
 			</div>
+			{/* Botón para obtener clientes */}
+			<Button text="Obtener clientes" onClick={getClients} variant="primary" />
+			{/* Mostrar clientes si existen */}
+			{clients.length > 0 && (
+				<div className="w-full max-w-xl mt-4 bg-gray-100 dark:bg-gray-800 rounded p-4">
+					<h3 className="font-bold mb-2">Clientes obtenidos:</h3>
+					<ul className="list-disc pl-5">
+						{clients.map((client, idx) => (
+							<li key={idx}>{JSON.stringify(client)}</li>
+						))}
+					</ul>
+				</div>
+			)}
 			<Confirmation
 				isOpen={showConfirmation}
 				modalTitle={
