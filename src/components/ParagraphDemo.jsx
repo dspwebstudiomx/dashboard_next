@@ -10,7 +10,7 @@ const ParagraphDemo = () => {
 			className="flex flex-col gap-12 w-full max-w-screen-xl items-center">
 			<H2>Párrafos</H2>
 			<div className="flex flex-col gap-20 w-full">
-				<div className="flex gap-20 items-center justify-start">
+				<div className="flex flex-col md:flex-row gap-8  md:gap-20 items-center justify-start">
 					<H6>Párrafo texto a la izquierda</H6>
 					<Paragraph align="left">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
@@ -27,7 +27,7 @@ const ParagraphDemo = () => {
 						quia eum voluptatem explicabo. Modi, molestias.
 					</Paragraph>
 				</div>
-				<div className="flex gap-20 items-center justify-start">
+				<div className="flex flex-col md:flex-row gap-8  md:gap-20 items-center justify-start">
 					<H6>Párrafo texto a la derecha</H6>
 					<Paragraph align="right">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
@@ -44,7 +44,7 @@ const ParagraphDemo = () => {
 						quia eum voluptatem explicabo. Modi, molestias.
 					</Paragraph>
 				</div>
-				<div className="flex gap-20 items-center justify-start">
+				<div className="flex flex-col md:flex-row gap-8  md:gap-20 items-center justify-start">
 					<H6>Párrafo texto al centro</H6>
 					<Paragraph align="center">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
@@ -61,7 +61,7 @@ const ParagraphDemo = () => {
 						quia eum voluptatem explicabo. Modi, molestias.
 					</Paragraph>
 				</div>
-				<div className="flex gap-20 items-center justify-start text-justify">
+				<div className="flex flex-col md:flex-row gap-8  md:gap-20 items-center justify-start text-justify">
 					<H6>Párrafo con texto justificado</H6>
 					<Paragraph align="justify">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque

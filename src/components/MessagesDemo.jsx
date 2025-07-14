@@ -6,49 +6,83 @@ import { useState } from "react";
 import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
 
 const MessagesDemo = () => {
-	const { clients, getClients } = useClients();
+	const {
+		clients,
+		getClients,
+		handleCreateClient,
+		handleEditClient,
+		handleDeleteClient,
+	} = useClients();
 	const [showConfirmation, setShowConfirmation] = useState(false); // Para controlar la visibilidad del modal de confirmación
 	const [modalType, setModalType] = useState(""); // Para saber qué acción mostrar
+	const [selectedClientId, setSelectedClientId] = useState(null); // Nuevo estado para el id del cliente seleccionado
 
-	// Función para abrir el modal de confirmación con el tipo de acción
-	const handleOpen = (type) => {
+	// Función para abrir el modal de confirmación con el tipo de acción y opcionalmente el id
+	const handleOpen = (type, id = null) => {
 		setModalType(type);
 		setShowConfirmation(true);
+		if (type === "eliminar_cliente" || type === "editar_cliente") {
+			setSelectedClientId(id);
+		} else {
+			setSelectedClientId(null);
+		}
 	};
 
 	// Función para cerrar el modal de confirmación
 	const handleCancel = () => {
 		setShowConfirmation(false);
+		setSelectedClientId(null);
 	};
 
-	// Funciones genéricas para cada acción y entidad
-	const handleDelete = (entity) => {
-		alert(`Eliminando ${entity}...`);
-		// Lógica eliminar cliente
-	};
-	const handleEdit = (entity) => {
-		alert(`Editando ${entity}...`);
-		// Aquí puedes agregar la lógica real de edición
-	};
-	const handleCreate = (entity) => {
-		alert(`Creando ${entity}...`);
-		// Aquí puedes agregar la lógica real de creación
+	// Funciones para Cliente usando el hook
+	const onDeleteClient = () => {
+		if (selectedClientId) {
+			handleDeleteClient(selectedClientId);
+			setSelectedClientId(null);
+			setShowConfirmation(false);
+		} else {
+			alert("No hay cliente seleccionado para eliminar.");
+		}
 	};
 
-	// Funciones para Cliente
-	const handleDeleteClient = () => handleDelete("cliente");
-	const handleEditClient = () => handleEdit("cliente");
-	const handleCreateClient = () => handleCreate("cliente");
+	const onEditClient = () => {
+		if (selectedClientId) {
+			const client = clients.find((c) => c.id === selectedClientId);
+			if (client) {
+				const updatedClient = { ...client, name: "Nombre Editado" };
+				handleEditClient(selectedClientId, updatedClient);
+				setShowConfirmation(false);
+				setSelectedClientId(null);
+			}
+		} else {
+			alert("No hay cliente seleccionado para editar.");
+		}
+	};
+
+	const onCreateClient = () => {
+		const newClient = {
+			id: Date.now(),
+			name: "Nuevo",
+			lastName: "Cliente",
+			company: "Empresa Demo",
+			email: "nuevo@demo.com",
+			// Agrega más campos si es necesario
+		};
+		handleCreateClient(newClient);
+		setShowConfirmation(false);
+	};
 
 	// Funciones para Tarea
-	const handleDeleteTask = () => handleDelete("tarea");
-	const handleEditTask = () => handleEdit("tarea");
-	const handleCreateTask = () => handleCreate("tarea");
+	// Funciones para Tarea (demo)
+	const handleDeleteTask = () => alert("Eliminando tarea...");
+	const handleEditTask = () => alert("Editando tarea...");
+	const handleCreateTask = () => alert("Creando tarea...");
 
 	// Funciones para Proyecto
-	const handleDeleteProject = () => handleDelete("proyecto");
-	const handleEditProject = () => handleEdit("proyecto");
-	const handleCreateProject = () => handleCreate("proyecto");
+	// Funciones para Proyecto (demo)
+	const handleDeleteProject = () => alert("Eliminando proyecto...");
+	const handleEditProject = () => alert("Editando proyecto...");
+	const handleCreateProject = () => alert("Creando proyecto...");
 
 	// Acciones genéricas para demo
 	const actionsMap = {
@@ -56,7 +90,7 @@ const MessagesDemo = () => {
 		eliminar_cliente: [
 			{
 				text: "Eliminar cliente",
-				onClick: () => handleDeleteClient(),
+				onClick: () => onDeleteClient(),
 				variant: "outline",
 				icon: <FaTrash />,
 			},
@@ -64,7 +98,7 @@ const MessagesDemo = () => {
 		editar_cliente: [
 			{
 				text: "Editar cliente",
-				onClick: () => handleEditClient(),
+				onClick: () => onEditClient(),
 				variant: "primary",
 				icon: <FaEdit />,
 			},
@@ -72,7 +106,7 @@ const MessagesDemo = () => {
 		crear_cliente: [
 			{
 				text: "Crear cliente",
-				onClick: () => handleCreateClient(),
+				onClick: () => onCreateClient(),
 				variant: "primary",
 				icon: <FaPlus />,
 			},
@@ -193,8 +227,24 @@ const MessagesDemo = () => {
 				<div className="w-full max-w-xl mt-4 bg-gray-100 dark:bg-gray-800 rounded p-4">
 					<h3 className="font-bold mb-2">Clientes obtenidos:</h3>
 					<ul className="list-disc pl-5">
-						{clients.map((client, idx) => (
-							<li key={idx}>{JSON.stringify(client)}</li>
+						{clients.map((client) => (
+							<li key={client.id} className="flex items-center gap-2">
+								<span>{JSON.stringify(client)}</span>
+								<Button
+									text="Eliminar"
+									variant="outline"
+									icon={<FaTrash />}
+									onClick={() => handleOpen("eliminar_cliente", client.id)}
+									size="sm"
+								/>
+								<Button
+									text="Editar"
+									variant="secondary"
+									icon={<FaEdit />}
+									onClick={() => handleOpen("editar_cliente", client.id)}
+									size="sm"
+								/>
+							</li>
 						))}
 					</ul>
 				</div>
