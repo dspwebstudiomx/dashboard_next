@@ -1,5 +1,13 @@
+/*
+  -- Component - Button.tsx --
+  - This file defines a customizable button component with various styles and sizes.
+  - It supports different variants, sizes, and an optional icon.
+  */
+
+// Import necessary React and TypeScript types
 import React from "react";
 
+// Button component with various styles and sizes
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	text?: string;
 	variant?:
@@ -30,6 +38,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	icon?: React.ReactNode; // Nuevo prop opcional para ícono
 }
 
+// Define styles for different sizes
 const sizeStyles: Record<string, string> = {
 	xs: "px-3 py-4 w-16 text-xs",
 	sm: "px-3 py-4 w-24 text-sm",
@@ -38,9 +47,11 @@ const sizeStyles: Record<string, string> = {
 	xl: "px-2 py-4 w-64 text-lg",
 };
 
+// Base styles for the button
 const baseStyles =
 	"rounded-xl font-semibold transition-color hover:scale-105 focus:scale-105";
 
+// Define styles for different variants
 const variants = {
 	active: "bg-blue-700 text-white shadow-inner",
 	block:
@@ -72,12 +83,14 @@ const variants = {
 		"flex items-center justify-center text-white border-2 border-amber-400 dark:border-amber-100 bg-amber-300 dark:hover:bg-amber-400 hover:bg-amber-400 focus:ring-red-500",
 };
 
+// Define types for button types
 const types: Record<string, "button" | "submit" | "reset"> = {
 	button: "button",
 	submit: "submit",
 	reset: "reset",
 };
 
+// Create the Button component using React.forwardRef for better accessibility and testing
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	(
 		{
@@ -89,20 +102,20 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			icon, // Optional icon prop
 			...props // rest of the props
 		},
-		ref
+		ref // Forward ref for better accessibility and testing
 	) => {
 		return (
 			<button
-				ref={ref}
-				type={types[type] || "button"}
+				ref={ref} // Forward ref for better accessibility and testing
+				type={types[type] || "button"} // Use the type from the types object or default to "button"
 				className={`
-          ${baseStyles}
-          ${sizeStyles[size || "md"]}
-          ${variants[variant]}
-          ${className}
+          ${baseStyles} {/* Base styles */}
+          ${sizeStyles[size || "md"]} {/* Size styles */}
+          ${variants[variant]} {/* Variant styles */}
+          ${className} {/* Additional custom styles */}
 			  `
-					.replace(/\s+/g, " ")
-					.trim()}
+					.replace(/\s+/g, " ") // Normalize whitespace
+					.trim()} // Clean up extra spaces
 				{...props}>
 				<span className="flex items-center justify-center">
 					{icon && <span className="mr-2 flex-shrink-0">{icon}</span>}
@@ -112,6 +125,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 		);
 	}
 );
-Button.displayName = "Button";
+Button.displayName = "Button"; // Set display name for debugging
 
 export default Button;
