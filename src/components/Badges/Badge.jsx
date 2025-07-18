@@ -35,7 +35,7 @@ const icons = {
 const Badge = ({ children, variant = "neutral", icon = true }) => {
 	return (
 		<span
-			className={`inline-flex items-center justify-center px-3 py-1 rounded-full text-sm font-medium gap-1 min-w-30 h-10 ${badgeVariants[variant]}`}>
+			className={`inline-flex items-center justify-center px-3 py-1 rounded-full text-sm font-medium gap-1 min-w-30 h-10 hover:scale-110 cursor-pointer animate-pulse ${badgeVariants[variant]}`}>
 			{icon && icons[variant]}
 			{children}
 		</span>
