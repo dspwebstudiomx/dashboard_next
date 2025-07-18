@@ -14,7 +14,7 @@ import TitlesDemo from "@/components/TitlesDemo";
 export default function App() {
 	return (
 		<Container>
-			<div className="grid md:grid-cols-2 gap-20 p-8">
+			<div className="grid md:grid-cols-2 gap-12 md:gap-40 justify-between items-start">
 				<ColorDemo />
 				<TitlesDemo />
 			</div>

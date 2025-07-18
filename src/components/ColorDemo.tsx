@@ -53,7 +53,7 @@ const colorItems = [
 
 export default function ColorDemo() {
 	return (
-		<div className="flex flex-col gap-6 p-8 bg-neutral">
+		<div className="flex flex-col gap-6 bg-neutral">
 			<H2 align="center">Colores Tema</H2>
 			<ul className="grid grid-cols-3 gap-8 mt-20 uppercase">
 				{colorItems.map((item, idx) => (
