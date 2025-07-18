@@ -65,10 +65,10 @@ const CardsDemo = () => {
 							icon={<IoEnterOutline className="text-2xl" />}
 							// icon={""}
 							type={"button"}
-							text={"Abrir Modal Principal"}
+							text={"Abrir Modal"}
 							modalTitle={"Modal Principal"}
 							variant={"primary"}
-							size="md">
+							size="lg">
 							<Paragraph align="justify">
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
 								nulla reiciendis, commodi adipisci, facilis consequatur aliquid
@@ -114,7 +114,7 @@ const CardsDemo = () => {
 							text={"Abrir Modal Principal"}
 							modalTitle={"Modal Principal"}
 							variant={"primary"}
-							size="lg">
+							size="xl">
 							<Paragraph align="justify">
 								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
 								nulla reiciendis, commodi adipisci, facilis consequatur aliquid
