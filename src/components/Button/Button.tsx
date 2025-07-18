@@ -61,10 +61,11 @@ const variants = {
 	disabled:
 		"bg-gray-300 text-gray-500 cursor-not-allowed opacity-50 pointer-events-none",
 	flat: "bg-transparent text-gray-800 hover:bg-gray-100 focus:ring-gray-400",
-	ghost: "text-gray-800 hover:bg-gray-100 focus:ring-gray-400",
+	ghost:
+		"text-gray-500 dark:text-gray-400 hover:bg-gray-100 focus:ring-gray-400",
 	icon: "flex items-center justify-center text-blue-600",
 	large: "text-lg",
-	link: "text-blue-600 hover:text-blue-700 focus:ring-blue-500 underline underline-offset-5 underline-blue-600",
+	link: "text-blue-600 dark:text-blue-400 hover:text-blue-700 focus:ring-blue-500 underline underline-offset-5 underline-blue-600",
 	loading: "bg-gray-400 text-white cursor-wait opacity-75 pointer-events-none",
 	normal:
 		"text-blue-500 hover:bg-blue-700 focus:ring-blue-500 border-1 border-primary-dark dark:border-primary-light",
