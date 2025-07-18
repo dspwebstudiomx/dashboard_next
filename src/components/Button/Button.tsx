@@ -87,7 +87,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			className = "",
 			type = "button",
 			icon,
-			children,
 			...rest
 		},
 		ref
@@ -97,10 +96,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				ref={ref}
 				type={types[type] || "button"}
 				className={`
-        ${baseStyles}
-        ${sizeStyles[size || "md"]}
-        ${variants[variant]}
-        ${className}
+          ${baseStyles}
+          ${sizeStyles[size || "md"]}
+          ${variants[variant]}
+          ${className}
 		      `
 					.replace(/\s+/g, " ")
 					.trim()}
@@ -108,7 +107,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				<span className="flex items-center justify-center">
 					{icon && <span className="mr-2 flex-shrink-0">{icon}</span>}
 					{text}
-					{children}
 				</span>
 			</button>
 		);

@@ -12,6 +12,7 @@ const HandleModalComponent = ({
 	type,
 	icon,
 	variant,
+	size,
 }) => {
 	const { isOpen, open, close, closeButtonRef } = useModal();
 
@@ -24,6 +25,7 @@ const HandleModalComponent = ({
 				icon={icon}
 				ref={closeButtonRef}
 				variant={variant}
+				size={size}
 			/>
 			{isOpen && (
 				<Modal

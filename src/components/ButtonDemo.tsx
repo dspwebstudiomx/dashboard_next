@@ -11,8 +11,8 @@ export default function ButtonDemo() {
 				<Button text="Danger" variant="danger" type="button" size="md" />
 				<Button text="Warning" variant="warning" type="button" size="lg" />
 				<Button text="Outline" variant="outline" type="button" size="xl" />
-				<Button text="Ghost" variant="ghost" type="button" />
-				<Button text="Link" variant="link" type="button" />
+				<Button text="Ghost" variant="ghost" type="button" size="lg" />
+				<Button text="Link" variant="link" type="button" size="md" />
 			</div>
 		</div>
 	);
