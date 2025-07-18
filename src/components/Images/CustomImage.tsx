@@ -5,11 +5,11 @@ type CustomImageSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 // Valores de tamaño para cada opción
 const sizes = {
-	xs: { w: 32, h: 32, tw: "w-8 h-8" },
-	sm: { w: 64, h: 64, tw: "w-16 h-16" },
-	md: { w: 128, h: 128, tw: "w-32 h-32" },
-	lg: { w: 192, h: 192, tw: "w-48 h-48" },
-	xl: { w: 256, h: 256, tw: "w-64 h-64" },
+	xs: { width: 32, height: 32 },
+	sm: { width: 64, height: 64 },
+	md: { width: 128, height: 128 },
+	lg: { width: 192, height: 192 },
+	xl: { width: 320, height: 320 },
 };
 
 interface CustomImageProps
@@ -28,12 +28,12 @@ const CustomImage = ({
 	const s = sizes[size] || sizes.md;
 	return (
 		<div
-			className={`overflow-hidden rounded-full ${s.tw}`.trim()}
-			style={{ width: s.w, height: s.h }}>
+			className={`overflow-hidden rounded-full border-2 border-gray-300 dark:border-gray-500 shadow-lg ${className}`.trim()}
+			style={{ width: s.width, height: s.height }}>
 			<Image
-				width={s.w}
-				height={s.h}
-				className={`object-cover w-full h-full ${className}`.trim()}
+				width={s.width}
+				height={s.height}
+				className="object-cover w-full h-full"
 				alt={alt}
 				{...props}
 			/>
