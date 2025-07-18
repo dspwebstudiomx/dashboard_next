@@ -3,7 +3,7 @@ import Card from "./Cards/Card";
 
 export default function ButtonDemo() {
 	return (
-		<Card title="Botones">
+		<Card title="Botones" titleSize="3xl">
 			<ul className="flex flex-col md:flex-row gap-4 items-center justify-between">
 				<li>
 					<Button text="Primary" variant="primary" type="button" size="xs" />

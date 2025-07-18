@@ -1,12 +1,10 @@
-import Container from "./Containers/Container";
+import Card from "./Cards/Card";
 import CustomImage from "./Images/CustomImage";
-import H2 from "./Title/H2";
 
 const ImageDemo = () => {
 	return (
-		<Container>
-			<H2 align="center">Imágenes</H2>
-			<section className="grid grid-cols-5 gap-20 place-items-center">
+		<Card title="Imágenes" titleSize="3xl">
+			<section className="flex gap-20 place-items-center">
 				<CustomImage
 					src="/avatar_placeholder.png"
 					alt="Placeholder Image"
@@ -33,7 +31,7 @@ const ImageDemo = () => {
 					size="xl"
 				/>
 			</section>
-		</Container>
+		</Card>
 	);
 };
 

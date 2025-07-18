@@ -6,6 +6,7 @@ import Confirmation from "@/components/Messages/Confirmation";
 import { useClients } from "@/hooks/useClients";
 import { useState } from "react";
 import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
+import Card from "./Cards/Card";
 
 // Componente principal de demostración de mensajes y acciones
 const MessagesDemo = () => {
@@ -173,9 +174,9 @@ const MessagesDemo = () => {
 
 	// Renderizado del componente
 	return (
-		<div className="flex flex-col items-center gap-4 mt-8">
+		<Card title="Mensajes y Acciones" titleSize="3xl">
 			{/* Botones de acciones principales */}
-			<div className="grid md:grid-cols-3 gap-8">
+			<div className="grid md:grid-cols-3 gap-8 mt-12">
 				{/* Botón eliminar tarea */}
 				<Button
 					text="Eliminar tarea"
@@ -321,7 +322,7 @@ const MessagesDemo = () => {
 				onCancel={handleCancel}
 				actions={actionsMap[modalType] || []}
 			/>
-		</div>
+		</Card>
 	);
 };
 

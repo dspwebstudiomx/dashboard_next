@@ -1,10 +1,9 @@
 import Badge from "./Badges/Badge";
-import H2 from "./Title/H2";
+import Card from "./Cards/Card";
 
 const BadgesDemo = () => {
 	return (
-		<>
-			<H2 align="center">Badges</H2>
+		<Card title="Badges" titleSize="3xl">
 			<div className="flex flex-wrap gap-4">
 				<Badge variant="primary">Primary</Badge>
 				<Badge variant="secondary">Secondary</Badge>
@@ -15,7 +14,7 @@ const BadgesDemo = () => {
 				<Badge variant="light">Light</Badge>
 				<Badge variant="dark">Dark</Badge>
 			</div>
-		</>
+		</Card>
 	);
 };
 
