@@ -7,7 +7,7 @@ interface CardProps {
 
 const Card = ({ children, title }: CardProps) => {
 	return (
-		<article className=" p-8 bg-gray-0 shadow-xl rounded-3xl flex flex-col gap-8 max-w-screen-lg dark:border-gray-500 dark:border-2 dark:bg-gray-800">
+		<article className=" p-8 bg-gray-0 shadow-xl rounded-3xl flex flex-col gap-8 dark:border-gray-500 dark:border-2 dark:bg-gray-800">
 			<H4>{title}</H4>
 			{children}
 		</article>

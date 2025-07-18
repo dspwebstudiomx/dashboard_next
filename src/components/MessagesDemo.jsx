@@ -1,6 +1,7 @@
 "use client";
 // Importación de componentes y hooks necesarios
 import Button from "@/components/Button/Button";
+import CloseButon from "@/components/Button/CloseButton";
 import Confirmation from "@/components/Messages/Confirmation";
 import { useClients } from "@/hooks/useClients";
 import { useState } from "react";
@@ -181,6 +182,7 @@ const MessagesDemo = () => {
 					onClick={() => handleOpen("eliminar_tarea")}
 					icon={<FaTrash className="text-lg" />}
 					variant="outline"
+					size="xl"
 				/>
 				{/* Botón eliminar cliente */}
 				<Button
@@ -188,6 +190,7 @@ const MessagesDemo = () => {
 					onClick={() => handleOpen("eliminar_cliente")}
 					icon={<FaTrash className="text-lg" />}
 					variant="outline"
+					size="xl"
 				/>
 				{/* Botón eliminar proyecto */}
 				<Button
@@ -195,6 +198,7 @@ const MessagesDemo = () => {
 					onClick={() => handleOpen("eliminar_proyecto")}
 					icon={<FaTrash className="text-lg" />}
 					variant="outline"
+					size="xl"
 				/>
 				{/* Botón editar tarea */}
 				<Button
@@ -202,6 +206,7 @@ const MessagesDemo = () => {
 					onClick={() => handleOpen("editar_tarea")}
 					icon={<FaEdit className="text-lg" />}
 					variant="secondary"
+					size="xl"
 				/>
 				{/* Botón editar cliente */}
 				<Button
@@ -209,6 +214,7 @@ const MessagesDemo = () => {
 					onClick={() => handleOpen("editar_cliente")}
 					icon={<FaEdit className="text-lg" />}
 					variant="secondary"
+					size="xl"
 				/>
 				{/* Botón editar proyecto */}
 				<Button
@@ -216,55 +222,79 @@ const MessagesDemo = () => {
 					onClick={() => handleOpen("editar_proyecto")}
 					icon={<FaEdit className="text-lg" />}
 					variant="secondary"
+					size="xl"
 				/>
 				{/* Botón crear tarea */}
 				<Button
 					text="Crear tarea"
 					onClick={() => handleOpen("crear_tarea")}
 					icon={<FaPlus className="text-lg" />}
+					variant="primary"
+					size="xl"
 				/>
 				{/* Botón crear cliente */}
 				<Button
 					text="Crear cliente"
 					onClick={() => handleOpen("crear_cliente")}
 					icon={<FaPlus className="text-lg" />}
+					variant="primary"
+					size="xl"
 				/>
 				{/* Botón crear proyecto */}
 				<Button
 					text="Crear proyecto"
 					onClick={() => handleOpen("crear_proyecto")}
 					icon={<FaPlus className="text-lg" />}
+					variant="primary"
+					size="xl"
 				/>
 			</div>
 
 			{/* Botón para obtener clientes */}
-			<Button text="Obtener clientes" onClick={getClients} variant="primary" />
+			<Button
+				text="Obtener clientes"
+				onClick={getClients}
+				variant="primary"
+				size="xl"
+			/>
 
 			{/* Mostrar lista de clientes si existen */}
 			{clients.length > 0 && (
-				<div className="w-full max-w-xl mt-4 bg-gray-100 dark:bg-gray-800 rounded p-4">
+				<div className="w-full max-w-xl bg-gray-100 dark:bg-gray-800 rounded-xl border-2 dark:border-gray-500 p-12 mt-20">
 					<h3 className="font-bold mb-2">Clientes obtenidos:</h3>
-					<ul className="list-disc pl-5">
+					<ul className="list-disc pl-0">
 						{clients.map((client) => (
-							<li key={client.id} className="flex items-center gap-2">
-								{/* Mostrar datos del cliente */}
-								<span>{JSON.stringify(client)}</span>
-								{/* Botón eliminar cliente individual */}
-								<Button
-									text="Eliminar"
-									variant="outline"
-									icon={<FaTrash />}
-									onClick={() => handleOpen("eliminar_cliente", client.id)}
-									size="sm"
-								/>
-								{/* Botón editar cliente individual */}
-								<Button
-									text="Editar"
-									variant="secondary"
-									icon={<FaEdit />}
-									onClick={() => handleOpen("editar_cliente", client.id)}
-									size="sm"
-								/>
+							<li
+								key={client.id}
+								className="flex flex-col md:items-start pl-3 gap-6 border-b border-gray-200 py-2">
+								{/* Mostrar datos del cliente en formato de lista para evitar desbordamiento */}
+								<ul className="flex-1 text-base text-gray-800 dark:text-gray-100 list-none">
+									{Object.entries(client).map(([key, value]) => (
+										<li key={key} className="mb-2">
+											<b>{key.charAt(0).toUpperCase() + key.slice(1)}:</b>{" "}
+											{String(value)}
+										</li>
+									))}
+								</ul>
+								<div className="flex gap-6 my-12">
+									<Button
+										text="Eliminar"
+										variant="outline"
+										icon={<FaTrash />}
+										onClick={() => handleOpen("eliminar_cliente", client.id)}
+										size="md"
+									/>
+									{/* Botón editar cliente individual */}
+									<Button
+										text="Editar"
+										variant="secondary"
+										icon={<FaEdit />}
+										onClick={() => handleOpen("editar_cliente", client.id)}
+										size="md"
+									/>
+									{/* Botón cerrar la ventana generada */}
+									<CloseButon text="Cerrar" onClick={handleCancel} size="md" />
+								</div>
 							</li>
 						))}
 					</ul>
