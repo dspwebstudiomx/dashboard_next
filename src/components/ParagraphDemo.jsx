@@ -1,17 +1,16 @@
+import Card from "./Cards/Card";
 import Paragraph from "./Paragraph/Paragraph";
-import H2 from "./Title/H2";
-import H6 from "./Title/H6";
+import H4 from "./Title/H4";
 
 // This component demonstrates the usage of Paragraph component with different alignments
 const ParagraphDemo = () => {
 	return (
-		<div
-			id="parrafos"
-			className="flex flex-col gap-12 w-full max-w-screen-xl items-center">
-			<H2>Párrafos</H2>
-			<div className="flex flex-col gap-20 w-full">
-				<div className="flex flex-col md:flex-row gap-8  md:gap-20 items-center justify-start">
-					<H6>Párrafo texto a la izquierda</H6>
+		<Card title="Demostración de Párrafos" titleSize="3xl">
+			<div className="grid grid-cols-5 gap-8  md:gap-20 items-center justify-start">
+				<div className="col-span-2">
+					<H4>Párrafo texto a la izquierda</H4>
+				</div>
+				<div className="col-span-3">
 					<Paragraph align="left">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
 						facere adipisci odio, fugiat laboriosam quae eligendi tenetur ut
@@ -27,8 +26,12 @@ const ParagraphDemo = () => {
 						quia eum voluptatem explicabo. Modi, molestias.
 					</Paragraph>
 				</div>
-				<div className="flex flex-col md:flex-row gap-8  md:gap-20 items-center justify-start">
-					<H6>Párrafo texto a la derecha</H6>
+			</div>
+			<div className="grid grid-cols-5 gap-8  md:gap-20 items-center justify-start">
+				<div className="col-span-2">
+					<H4>Párrafo texto a la derecha</H4>
+				</div>
+				<div className="col-span-3">
 					<Paragraph align="right">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
 						facere adipisci odio, fugiat laboriosam quae eligendi tenetur ut
@@ -44,8 +47,12 @@ const ParagraphDemo = () => {
 						quia eum voluptatem explicabo. Modi, molestias.
 					</Paragraph>
 				</div>
-				<div className="flex flex-col md:flex-row gap-8  md:gap-20 items-center justify-start">
-					<H6>Párrafo texto al centro</H6>
+			</div>
+			<div className="grid grid-cols-5 gap-8  md:gap-20 items-center justify-start">
+				<div className="col-span-2">
+					<H4>Párrafo texto al centro</H4>
+				</div>
+				<div className="col-span-3">
 					<Paragraph align="center">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
 						facere adipisci odio, fugiat laboriosam quae eligendi tenetur ut
@@ -61,8 +68,12 @@ const ParagraphDemo = () => {
 						quia eum voluptatem explicabo. Modi, molestias.
 					</Paragraph>
 				</div>
-				<div className="flex flex-col md:flex-row gap-8  md:gap-20 items-center justify-start text-justify">
-					<H6>Párrafo con texto justificado</H6>
+			</div>
+			<div className="grid grid-cols-5 gap-8  md:gap-20 items-center justify-start">
+				<div className="col-span-2">
+					<H4>Párrafo con texto justificado</H4>
+				</div>
+				<div className="col-span-3">
 					<Paragraph align="justify">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
 						facere adipisci odio, fugiat laboriosam quae eligendi tenetur ut
@@ -79,7 +90,7 @@ const ParagraphDemo = () => {
 					</Paragraph>
 				</div>
 			</div>
-		</div>
+		</Card>
 	);
 };
 
