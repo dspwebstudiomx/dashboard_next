@@ -43,14 +43,15 @@ const Modal = ({
 	return (
 		<div
 			className="fixed inset-0 flex items-center justify-center bg-black/70 transition-opacity duration-300 animate-fadeIn"
-			role="dialog"
-			aria-modal="true"
-			aria-labelledby="modal-title">
-			<div className="bg-gray-100 p-6 md:p-12 sm:rounded-2xl border-2 border-gray-300 shadow-lg transform transition-all duration-300 animate-modalIn z-40 sm:max-w-screen-sm  md:max-w-screen-md 2xl:min-w-screen-lg 2xl:max-w-screen-lg mx-auto dark:bg-gray-800 dark:border-gray-600 min-h-[50vh]">
+			role="dialog" // Define el rol del modal
+			aria-modal="true" // Indica que es un modal
+			aria-labelledby="modal-title" // Asocia el título del modal
+		>
+			<div className="bg-gray-100 p-9 py-12 md:p-12 sm:rounded-2xl border-2 border-gray-300 shadow-lg transform transition-all duration-300 animate-modalIn z-40 sm:max-w-screen-sm  md:max-w-screen-md 2xl:min-w-screen-lg 2xl:max-w-screen-lg mx-auto dark:bg-gray-800 dark:border-gray-600 md:min-h-[50vh] min-h-screen-[100vh]">
 				{/* Botón de cerrar modal */}
-				<div className="flex justify-end w-full">
+				<div className="flex justify-end items-center">
 					<Button
-						icon={<IoMdClose className="text-4xl font-bold" />} // Icono de cerrar
+						icon={<IoMdClose className="text-4xl font-bold -mr-10" />} // Icono de cerrar
 						variant="icon" // Variante del botón para icono
 						ref={closeButtonRef} // Referencia para el botón de cerrar
 						onClick={onClose} // Función para cerrar el modal
@@ -58,7 +59,7 @@ const Modal = ({
 					/>
 				</div>
 				{/* Contenido del modal */}
-				<div className="flex flex-col gap-8 max-h-screen overflow-y-auto">
+				<div className="flex flex-col gap-8 max-h-screen overflow-y-auto p-6">
 					<H4 id="modal-title" align="left">
 						{modalTitle}
 					</H4>

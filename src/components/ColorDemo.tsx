@@ -55,12 +55,12 @@ export default function ColorDemo() {
 	return (
 		<div className="flex flex-col gap-6 p-8 bg-neutral">
 			<H2 align="center">Colores Tema</H2>
-			<ul className="flex gap-4 flex-wrap mt-20 uppercase">
+			<ul className="grid grid-cols-3 gap-8 mt-20 uppercase">
 				{colorItems.map((item, idx) => (
 					<li
 						id={`color-${item.name}`}
 						key={idx}
-						className={`w-20 h-20 rounded-full flex items-center justify-center shadow text-2xl ${item.className}`}>
+						className={`w-18 h-18 md:w-20 md:h-20 rounded-full flex items-center justify-center shadow text-2xl ${item.className}`}>
 						{item.label}
 					</li>
 				))}

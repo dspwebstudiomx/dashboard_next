@@ -6,14 +6,32 @@ const ImageDemo = () => {
 	return (
 		<Container>
 			<H2 align="center">Imágenes</H2>
-			<section className="grid grid-cols-12">
-				<div className="mx-auto">
-					<CustomImage
-						src="/avatar_placeholder.png"
-						alt="Placeholder Image"
-						size="md"
-					/>
-				</div>
+			<section className="grid grid-cols-5 gap-20">
+				<CustomImage
+					src="/avatar_placeholder.png"
+					alt="Placeholder Image"
+					size="xl"
+				/>
+				<CustomImage
+					src="/avatar_placeholder.png"
+					alt="Placeholder Image"
+					size="lg"
+				/>
+				<CustomImage
+					src="/avatar_placeholder.png"
+					alt="Placeholder Image"
+					size="md"
+				/>
+				<CustomImage
+					src="/avatar_placeholder.png"
+					alt="Placeholder Image"
+					size="sm"
+				/>
+				<CustomImage
+					src="/avatar_placeholder.png"
+					alt="Placeholder Image"
+					size="xs"
+				/>
 			</section>
 		</Container>
 	);

@@ -24,13 +24,22 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 		| "warning"
 		| "normal"
 		| "flat";
+	size?: "xs" | "sm" | "md" | "lg" | "xl";
 	className?: string;
 	type?: "button" | "submit" | "reset";
 	icon?: React.ReactNode; // Nuevo prop opcional para ícono
 }
 
+const sizeStyles: Record<string, string> = {
+	xs: "px-1 py-2 text-xs",
+	sm: "px-3 py-1.5 text-sm",
+	md: "px-5 py-2 text-base",
+	lg: "px-7 py-3 text-lg",
+	xl: "px-10 py-4 text-xl",
+};
+
 const baseStyles =
-	"px-6 py-3 rounded-xl font-semibold transition-color hover:scale-105 focus:scale-105 text-sm";
+	"rounded-xl font-semibold transition-color hover:scale-105 focus:scale-105";
 
 const variants = {
 	active: "bg-blue-700 text-white shadow-inner",
@@ -74,6 +83,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 		{
 			text = " ", // Default text to avoid undefined
 			variant = "primary",
+			size = "md",
 			className = "",
 			type = "button",
 			icon,
@@ -86,7 +96,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			<button
 				ref={ref}
 				type={types[type] || "button"}
-				className={`${baseStyles} ${variants[variant]} ${className}`}
+				className={`
+        ${baseStyles}
+        ${sizeStyles[size || "md"]}
+        ${variants[variant]}
+        ${className}
+		      `
+					.replace(/\s+/g, " ")
+					.trim()}
 				{...rest}>
 				<span className="flex items-center justify-center">
 					{icon && <span className="mr-2 flex-shrink-0">{icon}</span>}
