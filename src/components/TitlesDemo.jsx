@@ -4,11 +4,12 @@ import H3 from "@/components/Title/H3";
 import H4 from "@/components/Title/H4";
 import H5 from "@/components/Title/H5";
 import H6 from "@/components/Title/H6";
+import Card from "./Cards/Card";
 
 const TitlesDemo = () => {
 	return (
-		<div id="titles" className="flex flex-col  gap-12 w-full">
-			<H2 align="center">Títulos</H2>
+		<Card title="Títulos" titleSize="3xl">
+			<div className="h-1"></div>
 			<div className="flex gap-4 items-end justify-start">
 				<H1 align="left">Hola Mundo</H1>
 				<H6>H1</H6>
@@ -33,7 +34,7 @@ const TitlesDemo = () => {
 				<H6 align="left">Hola Mundo</H6>
 				<H6>H6</H6>
 			</div>
-		</div>
+		</Card>
 	);
 };
 

@@ -4,7 +4,7 @@ import CustomImage from "./Images/CustomImage";
 const ImageDemo = () => {
 	return (
 		<Card title="Imágenes" titleSize="3xl">
-			<section className="flex gap-20 place-items-center">
+			<section className="flex flex-wrap gap-20 place-items-center">
 				<CustomImage
 					src="/avatar_placeholder.png"
 					alt="Placeholder Image"

@@ -1,4 +1,4 @@
-import H2 from "./Title/H2";
+import Card from "./Cards/Card";
 
 /**
  * Un componente de ejemplo que utiliza los colores personalizados definidos en tailwind.config.ts
@@ -53,9 +53,9 @@ const colorItems = [
 
 export default function ColorDemo() {
 	return (
-		<div className="flex flex-col gap-6 bg-neutral">
-			<H2 align="center">Colores Tema</H2>
-			<ul className="grid grid-cols-3 gap-8 mt-20 uppercase">
+		<Card title="Colores del Tema" titleSize="3xl">
+			<div className="h-1"></div>
+			<ul className="grid grid-cols-3 gap-8 uppercase">
 				{colorItems.map((item, idx) => (
 					<li
 						id={`color-${item.name}`}
@@ -65,6 +65,6 @@ export default function ColorDemo() {
 					</li>
 				))}
 			</ul>
-		</div>
+		</Card>
 	);
 }
