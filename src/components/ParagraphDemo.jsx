@@ -7,10 +7,10 @@ const ParagraphDemo = () => {
 	return (
 		<Card title="Demostración de Párrafos" titleSize="3xl">
 			<div className="grid grid-cols-5 gap-8  md:gap-20 items-center justify-start">
-				<div className="col-span-2">
+				<div className="col-span-5 md:col-span-2">
 					<H4>Párrafo texto a la izquierda</H4>
 				</div>
-				<div className="col-span-3">
+				<div className="col-span-5 md:col-span-3">
 					<Paragraph align="left">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
 						facere adipisci odio, fugiat laboriosam quae eligendi tenetur ut
@@ -28,10 +28,10 @@ const ParagraphDemo = () => {
 				</div>
 			</div>
 			<div className="grid grid-cols-5 gap-8  md:gap-20 items-center justify-start">
-				<div className="col-span-2">
+				<div className="col-span-5 md:col-span-2">
 					<H4>Párrafo texto a la derecha</H4>
 				</div>
-				<div className="col-span-3">
+				<div className="col-span-5 md:col-span-3">
 					<Paragraph align="right">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
 						facere adipisci odio, fugiat laboriosam quae eligendi tenetur ut
@@ -49,10 +49,10 @@ const ParagraphDemo = () => {
 				</div>
 			</div>
 			<div className="grid grid-cols-5 gap-8  md:gap-20 items-center justify-start">
-				<div className="col-span-2">
+				<div className="col-span-5 md:col-span-2">
 					<H4>Párrafo texto al centro</H4>
 				</div>
-				<div className="col-span-3">
+				<div className="col-span-5 md:col-span-3">
 					<Paragraph align="center">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
 						facere adipisci odio, fugiat laboriosam quae eligendi tenetur ut
@@ -70,10 +70,10 @@ const ParagraphDemo = () => {
 				</div>
 			</div>
 			<div className="grid grid-cols-5 gap-8  md:gap-20 items-center justify-start">
-				<div className="col-span-2">
+				<div className="col-span-5 md:col-span-2">
 					<H4>Párrafo con texto justificado</H4>
 				</div>
-				<div className="col-span-3">
+				<div className="col-span-5 md:col-span-3">
 					<Paragraph align="justify">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
 						facere adipisci odio, fugiat laboriosam quae eligendi tenetur ut
