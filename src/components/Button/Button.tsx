@@ -42,7 +42,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const sizeStyles: Record<string, string> = {
 	xs: "px-3 py-4 w-16 text-xs",
 	sm: "px-3 py-4 w-24 text-sm",
-	md: "px-3 py-4 w-32 text-base",
+	md: "px-3 py-4 w-32 text-sm",
 	lg: "px-2 py-4 w-48 text-base",
 	xl: "px-2 py-4 w-64 text-lg",
 };

@@ -15,7 +15,7 @@ export default function App() {
 	return (
 		<Container>
 			<h1 className="text-5xl font-bold mb-8">Guía de Estilos</h1>
-			<div className="grid md:grid-cols-2 gap-12 md:gap-40 justify-between items-start">
+			<div className="grid md:grid-cols-2 gap-12 md:gap-12">
 				<ColorDemo />
 				<TitlesDemo />
 			</div>

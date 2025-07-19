@@ -42,12 +42,12 @@ const Modal = ({
 
 	return (
 		<div
-			className="fixed inset-0 flex items-center justify-center bg-black/70 transition-opacity duration-300 animate-fadeIn"
+			className="fixed inset-0 flex items-center justify-center bg-black/70 transition-opacity duration-300 animate-fadeIn z-40"
 			role="dialog" // Define el rol del modal
 			aria-modal="true" // Indica que es un modal
 			aria-labelledby="modal-title" // Asocia el título del modal
 		>
-			<div className="bg-gray-100 p-9 py-12 md:p-12 sm:rounded-2xl border-2 border-gray-300 shadow-lg transform transition-all duration-300 animate-modalIn z-40 sm:max-w-screen-sm  md:max-w-screen-md md:min-w-screen-md 2xl:min-w-screen-lg 2xl:max-w-screen-lg mx-auto dark:bg-gray-800 dark:border-gray-600 md:min-h-[50vh] min-h-screen-[100vh]">
+			<div className="bg-white dark:bg-gray-900 p-9 py-12 md:p-12 sm:rounded-2xl border-2 border-gray-200 dark:border-gray-700 shadow-lg transform transition-all duration-300 animate-modalIn z-40 sm:max-w-screen-sm  md:max-w-screen-md md:min-w-screen-md 2xl:min-w-screen-lg 2xl:max-w-screen-lg mx-auto md:min-h-[50vh] min-h-screen-[100vh]">
 				{/* Botón de cerrar modal */}
 				<div className="flex justify-end items-center">
 					<Button
@@ -80,7 +80,7 @@ export default Modal;
   the modal. Optionally, you can pass a title for the modal and a reference for the close button.
   Example:
 	<Modal onClose={handleClose} modalTitle="My Modal">
-    <p>This is the content of the modal.</p>
+	<p>This is the content of the modal.</p>
 	</Modal>
   Note: This component uses the `useEffect` hook to manage the modal's open state
   and the body's overflow style. It also uses the `IoMdClose` icon for the close button.
