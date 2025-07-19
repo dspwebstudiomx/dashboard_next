@@ -58,7 +58,7 @@ const FloatingThemeButton = () => {
 		<div>
 			<button
 				onClick={toggleTheme}
-				className="fixed bottom-20 right-4 z-50 w-10 h-10 rounded-full flex items-center justify-center bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-colors dark:bg-gray-800 dark:text-yellow-400"
+				className="fixed bottom-20 right-4 z-50 w-10 h-10 rounded-full flex items-center justify-center bg-primary-dark text-white shadow-lg hover:bg-blue-700 transition-colors dark:bg-gray-800 dark:hover:bg-secondary-dark dark:text-yellow-400"
 				aria-label="Cambiar tema">
 				{darkMode ? <FaSun size={18} /> : <FaMoon size={18} />}
 			</button>
