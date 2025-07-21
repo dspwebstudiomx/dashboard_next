@@ -6,9 +6,8 @@ export function useClients() {
 
   function getClients() {
     axios
-      .get("api/clients.json")
+      .get("http://localhost:3001/api/clients")
       .then((response) => {
-        console.log(response.data);
         setClients(response.data);
       })
       .catch((error) => {
@@ -21,7 +20,7 @@ export function useClients() {
   // Crear cliente
   function handleCreateClient(client) {
     axios
-      .post("api/clients.json", client)
+      .post("http://localhost:3001/api/clients", client)
       .then((response) => {
         setClients((prevClients) => [...prevClients, response.data]);
       })
@@ -32,7 +31,7 @@ export function useClients() {
   // Editar cliente
   function handleEditClient(clientId, updatedClient) {
     axios
-      .put(`api/clients/${clientId}.json`, updatedClient)
+      .put(`http://localhost:3001/api/clients/${clientId}`, updatedClient)
       .then((response) => {
         setClients((prevClients) =>
           prevClients.map((client) =>
@@ -47,7 +46,7 @@ export function useClients() {
   // Eliminar cliente
   function handleDeleteClient(clientId) {
     axios
-      .delete(`api/clients/${clientId}.json`)
+      .delete(`http://localhost:3001/api/clients/${clientId}`)
       .then(() => {
         setClients((prevClients) =>
           prevClients.filter((client) => client.id !== clientId)
