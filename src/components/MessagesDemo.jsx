@@ -25,6 +25,8 @@ const MessagesDemo = () => {
 	const [modalType, setModalType] = useState("");
 	// Estado para guardar el id del cliente seleccionado (si aplica)
 	const [selectedClientId, setSelectedClientId] = useState(null);
+	// Estado para saber si se presionó el botón de obtener clientes
+	const [clientesConsultados, setClientesConsultados] = useState(false);
 
 	// Abre el modal de confirmación y guarda el tipo de acción y el id del cliente si corresponde
 	const handleOpen = (type, id = null) => {
@@ -254,53 +256,65 @@ const MessagesDemo = () => {
 			{/* Botón para obtener clientes */}
 			<Button
 				text="Obtener clientes"
-				onClick={getClients}
+				onClick={() => {
+					getClients();
+					setClientesConsultados(true);
+				}}
 				variant="primary"
 				size="xl"
 			/>
 
-			{/* Mostrar lista de clientes si existen */}
-			{clients.length > 0 && (
-				<div className="w-full max-w-xl bg-gray-100 dark:bg-gray-800 rounded-xl border-2 dark:border-gray-500 p-12 mt-20">
-					<h3 className="font-bold mb-2">Clientes obtenidos:</h3>
-					<ul className="list-disc pl-0">
-						{clients.map((client) => (
-							<li
-								key={client.id}
-								className="flex flex-col md:items-start pl-3 gap-6 border-b border-gray-200 py-2">
-								{/* Mostrar datos del cliente en formato de lista para evitar desbordamiento */}
-								<ul className="flex-1 text-base text-gray-800 dark:text-gray-100 list-none">
-									{Object.entries(client).map(([key, value]) => (
-										<li key={key} className="mb-2">
-											<b>{key.charAt(0).toUpperCase() + key.slice(1)}:</b>{" "}
-											{String(value)}
-										</li>
-									))}
-								</ul>
-								<div className="flex gap-6 my-12">
-									<Button
-										text="Eliminar"
-										variant="outline"
-										icon={<FaTrash />}
-										onClick={() => handleOpen("eliminar_cliente", client.id)}
-										size="md"
-									/>
-									{/* Botón editar cliente individual */}
-									<Button
-										text="Editar"
-										variant="secondary"
-										icon={<FaEdit />}
-										onClick={() => handleOpen("editar_cliente", client.id)}
-										size="md"
-									/>
-									{/* Botón cerrar la ventana generada */}
-									<CloseButon text="Cerrar" onClick={handleCancel} size="md" />
-								</div>
-							</li>
-						))}
-					</ul>
-				</div>
-			)}
+			{/* Mostrar lista de clientes solo si se presionó el botón */}
+			{clientesConsultados &&
+				(clients.length > 0 ? (
+					<div className="w-full max-w-xl bg-gray-100 dark:bg-gray-800 rounded-xl border-2 dark:border-gray-500 p-12 mt-20">
+						<h3 className="font-bold mb-2">Clientes obtenidos:</h3>
+						<ul className="list-disc pl-0">
+							{clients.map((client) => (
+								<li
+									key={client.id}
+									className="flex flex-col md:items-start pl-3 gap-6 border-b border-gray-200 py-2">
+									{/* Mostrar datos del cliente en formato de lista para evitar desbordamiento */}
+									<ul className="flex-1 text-base text-gray-800 dark:text-gray-100 list-none">
+										{Object.entries(client).map(([key, value]) => (
+											<li key={key} className="mb-2">
+												<b>{key.charAt(0).toUpperCase() + key.slice(1)}:</b>{" "}
+												{String(value)}
+											</li>
+										))}
+									</ul>
+									<div className="flex gap-6 my-12">
+										<Button
+											text="Eliminar"
+											variant="outline"
+											icon={<FaTrash />}
+											onClick={() => handleOpen("eliminar_cliente", client.id)}
+											size="md"
+										/>
+										{/* Botón editar cliente individual */}
+										<Button
+											text="Editar"
+											variant="secondary"
+											icon={<FaEdit />}
+											onClick={() => handleOpen("editar_cliente", client.id)}
+											size="md"
+										/>
+										{/* Botón cerrar la ventana generada */}
+										<CloseButon
+											text="Cerrar"
+											onClick={handleCancel}
+											size="md"
+										/>
+									</div>
+								</li>
+							))}
+						</ul>
+					</div>
+				) : (
+					<div className="w-full max-w-xl bg-gray-100 dark:bg-gray-800 rounded-xl border-2 dark:border-gray-500 px-12 py-6 mt-20 text-center mx-auto flex items-center justify-center">
+						<h3 className="font-bold mb-2">No hay clientes registrados.</h3>
+					</div>
+				))}
 
 			{/* Modal de confirmación para todas las acciones */}
 			<Confirmation

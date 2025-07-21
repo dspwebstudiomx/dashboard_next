@@ -1,1 +1,23 @@
-[]
+[
+	{
+		"id": 101,
+		"name": "María",
+		"lastName": "López",
+		"company": "Innovatech",
+		"email": "maria.lopez@innovatech.com"
+	},
+	{
+		"id": 102,
+		"name": "Carlos",
+		"lastName": "Ramírez",
+		"company": "GlobalSoft",
+		"email": "carlos.ramirez@globalsoft.com"
+	},
+	{
+		"id": 103,
+		"name": "Sofía",
+		"lastName": "Fernández",
+		"company": "RedesMX",
+		"email": "sofia.fernandez@redesmx.com"
+	}
+]
