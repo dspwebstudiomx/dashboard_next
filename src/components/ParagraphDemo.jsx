@@ -69,11 +69,11 @@ const ParagraphDemo = () => {
 					</Paragraph>
 				</div>
 			</div>
-			<div className="grid grid-cols-5 gap-8  md:gap-20 items-center justify-start">
+			<div className="grid grid-cols-5 gap-8  md:gap-20 items-center ">
 				<div className="col-span-5 md:col-span-2">
 					<H4>Párrafo con texto justificado</H4>
 				</div>
-				<div className="col-span-5 md:col-span-3">
+				<div className="col-span-5 md:col-span-3 w-full">
 					<Paragraph align="justify">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque
 						facere adipisci odio, fugiat laboriosam quae eligendi tenetur ut
