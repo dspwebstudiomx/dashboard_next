@@ -3,21 +3,172 @@
 		"id": 101,
 		"name": "María",
 		"lastName": "López",
+		"lastName2": "García",
+		"address": "Calle Falsa 123",
+		"city": "Madrid",
+		"state": "Madrid",
+		"zipCode": "28001",
+		"country": "España",
 		"company": "Innovatech",
-		"email": "maria.lopez@innovatech.com"
+		"email": "maria.lopez@innovatech.com",
+		"phone": "+34 612 345 678",
+		"createdAt": "2023-10-01T12:00:00Z",
+		"updatedAt": "2023-10-01T12:00:00Z",
+		"status": "active",
+		"notes": "Cliente desde 2023, interesado en soluciones de software.",
+		"RFC": "INN123456789",
+		"CURP": "LOPM830101HDFGNR01",
+		"projects": [
+			{
+				"id": 1,
+				"name": "Proyecto Innovatech",
+				"description": "Desarrollo de una plataforma de gestión empresarial.",
+				"startDate": "2023-10-01",
+				"endDate": "2024-03-31",
+				"status": "ongoing",
+				"priority": "high",
+				"budget": 50000,
+				"cost": [
+					{
+						"type": "development",
+						"amount": 20000,
+						"currency": "EUR"
+					},
+					{
+						"type": "marketing",
+						"amount": 10000,
+						"currency": "EUR"
+					},
+					{
+						"type": "maintenance",
+						"amount": 5000,
+						"currency": "EUR"
+					}
+				],
+				"teamMembers": [
+					{
+						"id": 1,
+						"name": "Juan Pérez",
+						"role": "Desarrollador",
+						"email": "juan.perez@dspwebstudio.com"
+					},
+					{
+						"id": 2,
+						"name": "Ana García",
+						"role": "Diseñadora",
+						"email": "ana.garcia@dspwebstudio.com"
+					},
+					{
+						"id": 3,
+						"name": "Luis Martínez",
+						"role": "Tester",
+						"email": "luis.martinez@dspwebstudio.com"
+					}
+				]
+			}
+		]
 	},
 	{
-		"id": 102,
-		"name": "Carlos",
-		"lastName": "Ramírez",
-		"company": "GlobalSoft",
-		"email": "carlos.ramirez@globalsoft.com"
-	},
-	{
-		"id": 103,
-		"name": "Sofía",
-		"lastName": "Fernández",
-		"company": "RedesMX",
-		"email": "sofia.fernandez@redesmx.com"
+		"id": "1753301081058",
+		"name": "Joãoa",
+		"lastName": "Souzaa",
+		"lastName2": "Silvaa",
+		"address": "Rua Inexistente, 2000",
+		"city": "Belo Horizonte",
+		"state": "Michoacán",
+		"zipCode": "30260-080",
+		"country": "",
+		"company": "Empresa Falsa",
+		"email": "",
+		"phone": "4439188025",
+		"website": "",
+		"industry": "",
+		"contactPerson": {
+			"name": "",
+			"role": "",
+			"email": "",
+			"phone": ""
+		},
+		"socialMedia": {
+			"facebook": "",
+			"instagram": "",
+			"linkedin": "",
+			"twitter": ""
+		},
+		"logoUrl": "",
+		"paymentTerms": "",
+		"billingInfo": {
+			"razonSocial": "",
+			"direccionFiscal": "",
+			"RFC": "",
+			"emailFacturacion": ""
+		},
+		"activeProjectsCount": 0,
+		"lastInvoiceDate": "",
+		"createdAt": "2025-07-23T20:04:40.483Z",
+		"updatedAt": "2025-07-23T20:04:40.483Z",
+		"status": "",
+		"notes": "",
+		"RFC": "",
+		"CURP": "",
+		"projects": [
+			{
+				"id": "",
+				"name": "",
+				"description": "",
+				"type": "",
+				"technologies": [""],
+				"deliverables": [""],
+				"milestones": [
+					{
+						"name": "",
+						"date": ""
+					}
+				],
+				"clientFeedback": "",
+				"repositoryUrl": "",
+				"hosting": {
+					"provider": "",
+					"access": "",
+					"renewalDate": ""
+				},
+				"supportPeriod": "",
+				"maintenancePlan": "",
+				"attachments": [
+					{
+						"name": "",
+						"url": ""
+					}
+				],
+				"startDate": "",
+				"endDate": "",
+				"status": "",
+				"priority": "",
+				"budget": 0,
+				"taxes": {
+					"IVA": 0,
+					"ISR": 0,
+					"retenciones": {
+						"IVA": 0,
+						"ISR": 0
+					}
+				},
+				"cost": [
+					{
+						"type": "",
+						"amount": 0,
+						"currency": ""
+					}
+				],
+				"teamMembers": [
+					{
+						"id": "",
+						"name": "",
+						"role": "",
+						"email": ""
+					}
+				]
+			}
+		]
 	}
 ]

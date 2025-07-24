@@ -19,13 +19,16 @@ export function useClients() {
 
   // Crear cliente
   function handleCreateClient(client) {
-    axios
+    return axios
       .post("http://localhost:3001/api/clients", client)
       .then((response) => {
-        setClients((prevClients) => [...prevClients, response.data]);
+        // Refresca la lista desde el backend
+        getClients();
+        return response.data;
       })
       .catch((error) => {
         console.error("Error al crear el cliente:", error);
+        throw error;
       });
   }
   // Editar cliente

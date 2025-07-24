@@ -101,12 +101,14 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			className = "", // Default className
 			type = "button", // Default type
 			icon, // Optional icon prop
+			onClick,
 			...props // rest of the props
 		},
 		ref // Forward ref for better accessibility and testing
 	) => {
 		return (
 			<button
+				onClick={onClick} // Handle click event
 				ref={ref} // Forward ref for better accessibility and testing
 				type={types[type] || "button"} // Use the type from the types object or default to "button"
 				className={`

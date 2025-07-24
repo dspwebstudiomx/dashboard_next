@@ -2,6 +2,7 @@
 // Importación de componentes y hooks necesarios
 import Button from "@/components/Button/Button";
 import CloseButon from "@/components/Button/CloseButton";
+import ClientForm from "@/components/ClientForm";
 import Confirmation from "@/components/Messages/Confirmation";
 import { useClients } from "@/hooks/useClients";
 import { useState } from "react";
@@ -114,14 +115,7 @@ const MessagesDemo = () => {
 				icon: <FaEdit />,
 			},
 		],
-		crear_cliente: [
-			{
-				text: "Crear cliente",
-				onClick: onCreateClient,
-				variant: "primary",
-				icon: <FaPlus />,
-			},
-		],
+		// La creación de cliente ahora solo se realiza mediante el formulario ClientForm
 		// Acciones para tarea
 		eliminar_tarea: [
 			{
@@ -302,7 +296,7 @@ const MessagesDemo = () => {
 										{/* Botón cerrar la ventana generada */}
 										<CloseButon
 											text="Cerrar"
-											onClick={handleCancel}
+											onClick={() => handleCancel()}
 											size="md"
 										/>
 									</div>
@@ -336,6 +330,11 @@ const MessagesDemo = () => {
 				onCancel={handleCancel}
 				actions={actionsMap[modalType] || []}
 			/>
+
+			{/* Formulario para crear cliente (solo visible al crear un cliente nuevo) */}
+			{modalType === "crear_cliente" && (
+				<ClientForm onSave={handleCreateClient} />
+			)}
 		</Card>
 	);
 };
