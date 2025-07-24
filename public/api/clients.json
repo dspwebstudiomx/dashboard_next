@@ -1,7 +1,7 @@
 [
 	{
 		"id": 101,
-		"name": "María",
+		"name": "Nombre Editado",
 		"lastName": "López",
 		"lastName2": "García",
 		"address": "Calle Falsa 123",
@@ -18,11 +18,25 @@
 		"notes": "Cliente desde 2023, interesado en soluciones de software.",
 		"RFC": "INN123456789",
 		"CURP": "LOPM830101HDFGNR01",
+		"socialMedia": {
+			"facebook": "https://facebook.com/innovatech",
+			"instagram": "https://instagram.com/innovatech",
+			"linkedin": "https://linkedin.com/company/innovatech",
+			"x": "https://x.com/innovatech",
+			"website": "https://www.innovatech.com"
+		},
 		"projects": [
 			{
 				"id": 1,
 				"name": "Proyecto Innovatech",
 				"description": "Desarrollo de una plataforma de gestión empresarial.",
+				"socialMedia": {
+					"facebook": "https://facebook.com/innovatech",
+					"instagram": "https://instagram.com/innovatech",
+					"linkedin": "https://linkedin.com/company/innovatech",
+					"x": "https://x.com/innovatech",
+					"website": "https://www.innovatech.com"
+				},
 				"startDate": "2023-10-01",
 				"endDate": "2024-03-31",
 				"status": "ongoing",
