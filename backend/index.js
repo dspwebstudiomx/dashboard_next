@@ -4,29 +4,28 @@ import fs from "fs";
 import path from "path";
 import cors from "./cors.js";
 
-const app = express();
-const PORT = 3001;
+const app = express(); // Crear una instancia de Express
+const PORT = 3001; // Puerto del backend
 // Obtener dirname en ES Modules
-import { fileURLToPath } from "url";
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-// Siempre apunta al archivo en la raíz del proyecto, no importa el cwd
-const CLIENTS_PATH = path.join(__dirname, "..", "public", "api", "clients.json");
+import { fileURLToPath } from "url"; // Importar fileURLToPath para obtener el directorio del archivo
+const __dirname = path.dirname(fileURLToPath(import.meta.url)); // Obtener el directorio del archivo actual
+const CLIENTS_PATH = path.join(__dirname, "..", "public", "api", "clients.json"); // Ruta al archivo clients.json
 
-app.use(express.json());
-app.use(cors);
+app.use(express.json()); // Middleware para parsear JSON
+app.use(cors); // Middleware para habilitar CORS
 
 // Obtener todos los clientes
 app.get("/api/clients", (req, res) => {
   fs.readFile(CLIENTS_PATH, "utf8", (err, data) => {
     if (err) {
-      console.error("Error leyendo archivo clients.json:", err);
-      console.error("Código de error:", err.code);
-      console.error("Mensaje de error:", err.message);
-      return res.status(500).json({ error: "Error leyendo archivo", code: err.code, message: err.message });
+      console.error("Error leyendo archivo clients.json:", err); // Manejo de errores al leer el archivo
+      console.error("Código de error:", err.code); // Código de error del sistema de archivos
+      console.error("Mensaje de error:", err.message); // Mensaje de error del sistema de archivos
+      return res.status(500).json({ error: "Error leyendo archivo", code: err.code, message: err.message }); // Respuesta de error al cliente
     }
     try {
-      const clients = JSON.parse(data);
-      res.json(clients);
+      const clients = JSON.parse(data); // Parsear el contenido del archivo
+      res.json(clients); // Enviar los clientes como respuesta
     } catch (e) {
       console.error("Error parseando clients.json en GET:", e);
       return res.status(500).json({ error: "Error parseando archivo" });
