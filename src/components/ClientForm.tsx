@@ -317,7 +317,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="name"
 							value={form.name}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.name ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -331,7 +331,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="lastName"
 							value={form.lastName}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.lastName ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -345,7 +345,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="lastName2"
 							value={form.lastName2}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.lastName2 ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -359,7 +359,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="phone"
 							value={form.phone}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.phone ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -373,7 +373,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="company"
 							value={form.company}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.company ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -387,7 +387,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="website"
 							value={form.website}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.website ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -401,7 +401,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="email"
 							value={form.email}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.email ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -416,7 +416,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="facebook"
 							value={form.socialMedia.facebook}
 							onChange={(e) => handleNestedChange(e, "socialMedia")}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.socialMedia.facebook ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -431,7 +431,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="instagram"
 							value={form.socialMedia.instagram}
 							onChange={(e) => handleNestedChange(e, "socialMedia")}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.socialMedia.instagram ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -446,7 +446,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="linkedin"
 							value={form.socialMedia.linkedin}
 							onChange={(e) => handleNestedChange(e, "socialMedia")}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.socialMedia.linkedin ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -461,7 +461,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="x"
 							value={form.socialMedia.x}
 							onChange={(e) => handleNestedChange(e, "socialMedia")}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.socialMedia.x ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -475,7 +475,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="industry"
 							value={form.industry}
 							onChange={handleSelectChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.industry ? "bg-blue-200" : ""
 							}`}>
 							<option value="">Selecciona una industria</option>
@@ -504,7 +504,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="address"
 							value={form.address}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.address ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -518,7 +518,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="city"
 							value={form.city}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.city ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -532,7 +532,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="state"
 							value={form.state}
 							onChange={handleSelectChange}
-							className="pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100">
+							className="pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0">
 							<option value="">Selecciona un estado</option>
 							<option value="Aguascalientes">Aguascalientes</option>
 							<option value="Baja California">Baja California</option>
@@ -577,7 +577,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="zipCode"
 							value={form.zipCode}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.zipCode ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -591,7 +591,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="logoUrl"
 							value={form.logoUrl}
 							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.logoUrl ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -605,7 +605,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							name="paymentTerms"
 							value={form.paymentTerms}
 							onChange={handleSelectChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.paymentTerms ? "bg-blue-200" : ""
 							}`}>
 							<option value="">Selecciona una opción</option>
@@ -631,7 +631,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							value={form.notes}
 							onChange={(e) => setForm({ ...form, notes: e.target.value })}
 							rows={8}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 								form.notes ? "bg-blue-200" : ""
 							}`}
 						/>
@@ -649,7 +649,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								name="name"
 								value={form.contactPerson.name}
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
-								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 									form.contactPerson?.name ? "bg-blue-200" : ""
 								}`}
 							/>
@@ -663,7 +663,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								name="role"
 								value={form.contactPerson.role}
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
-								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 									form.contactPerson?.role ? "bg-blue-200" : ""
 								}`}
 							/>
@@ -677,7 +677,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								name="email"
 								value={form.contactPerson.email}
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
-								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 									form.contactPerson?.email ? "bg-blue-200" : ""
 								}`}
 							/>
@@ -691,7 +691,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								name="phone"
 								value={form.contactPerson.phone}
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
-								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 0 ${
 									form.contactPerson?.phone ? "bg-blue-200" : ""
 								}`}
 							/>
