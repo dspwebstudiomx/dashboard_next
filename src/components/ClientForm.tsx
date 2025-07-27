@@ -471,14 +471,29 @@ const ClientForm = React.forwardRef(function ClientForm(
 							<FaIndustry className="text-primary-dark text-2xl" />
 							<label className="text-base">Industria</label>
 						</div>
-						<input
+						<select
 							name="industry"
 							value={form.industry}
-							onChange={handleChange}
+							onChange={handleSelectChange}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
 								form.industry ? "bg-blue-200" : ""
-							}`}
-						/>
+							}`}>
+							<option value="">Selecciona una industria</option>
+							<option value="Tecnología">Tecnología</option>
+							<option value="Salud">Salud</option>
+							<option value="Educación">Educación</option>
+							<option value="Finanzas">Finanzas</option>
+							<option value="Comercio">Comercio</option>
+							<option value="Manufactura">Manufactura</option>
+							<option value="Construcción">Construcción</option>
+							<option value="Alimentos y Bebidas">Alimentos y Bebidas</option>
+							<option value="Transporte y Logística">
+								Transporte y Logística
+							</option>
+							<option value="Turismo">Turismo</option>
+							<option value="Servicios">Servicios</option>
+							<option value="Otra">Otra</option>
+						</select>
 					</div>
 					<div className="flex flex-col items-center gap-4">
 						<div className="flex items-center gap-2 justify-start w-full">
@@ -586,24 +601,35 @@ const ClientForm = React.forwardRef(function ClientForm(
 							<FaFileSignature className="text-primary-dark text-2xl" />
 							<label className="text-base">Condiciones de pago</label>
 						</div>
-						<input
+						<select
 							name="paymentTerms"
 							value={form.paymentTerms}
-							onChange={handleChange}
+							onChange={handleSelectChange}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
 								form.paymentTerms ? "bg-blue-200" : ""
-							}`}
-						/>
+							}`}>
+							<option value="">Selecciona una opción</option>
+							<option value="Contado">Contado</option>
+							<option value="7 días">7 días</option>
+							<option value="15 días">15 días</option>
+							<option value="30 días">30 días</option>
+							<option value="60 días">60 días</option>
+							<option value="90 días">90 días</option>
+							<option value="Anticipo 50% y 50% a la entrega">
+								Anticipo 50% y 50% a la entrega
+							</option>
+							<option value="Otra">Otra</option>
+						</select>
 					</div>
-					<div className="flex items-center gap-4 md:col-span-2">
-						<FaFileSignature className="text-primary-dark text-2xl" />
+					<div className="flex flex-col items-center gap-4 md:col-span-2">
+						<div className="flex items-center gap-2 justify-start w-full">
+							<FaFileSignature className="text-primary-dark text-2xl" />
+							<label className="text-base">Notas</label>
+						</div>
 						<textarea
 							name="notes"
 							value={form.notes}
-							onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
-								setForm({ ...form, notes: e.target.value })
-							}
-							placeholder="Notas"
+							onChange={(e) => setForm({ ...form, notes: e.target.value })}
 							rows={8}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:text-gray-100 ${
 								form.notes ? "bg-blue-200" : ""
