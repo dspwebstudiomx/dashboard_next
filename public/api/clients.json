@@ -305,5 +305,122 @@
         ]
       }
     ]
+  },
+  {
+    "id": "1753664022887",
+    "name": "asasas",
+    "lastName": "",
+    "lastName2": "",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zipCode": "",
+    "country": "",
+    "company": "",
+    "email": "sdsdsdsd",
+    "phone": "",
+    "website": "sdsdsdsd",
+    "industry": "",
+    "contactPerson": {
+      "name": "a",
+      "role": "aasas",
+      "email": "",
+      "phone": ""
+    },
+    "socialMedia": {
+      "facebook": "asasas",
+      "instagram": "",
+      "linkedin": "sdsdsdsdd",
+      "twitter": "",
+      "x": "sdsdsdsd",
+      "website": ""
+    },
+    "logoUrl": "",
+    "paymentTerms": "",
+    "billingInfo": {
+      "razonSocial": "",
+      "direccionFiscal": "",
+      "RFC": "",
+      "emailFacturacion": ""
+    },
+    "activeProjectsCount": 0,
+    "lastInvoiceDate": "",
+    "createdAt": "2025-07-28T00:53:42.772Z",
+    "updatedAt": "2025-07-28T00:53:42.773Z",
+    "status": "",
+    "notes": "",
+    "RFC": "",
+    "CURP": "",
+    "projects": [
+      {
+        "id": "",
+        "name": "",
+        "description": "",
+        "type": "",
+        "technologies": [
+          ""
+        ],
+        "deliverables": [
+          ""
+        ],
+        "milestones": [
+          {
+            "name": "",
+            "date": ""
+          }
+        ],
+        "clientFeedback": "",
+        "repositoryUrl": "",
+        "socialMedia": {
+          "facebook": "",
+          "instagram": "",
+          "linkedin": "",
+          "twitter": "",
+          "x": "",
+          "website": ""
+        },
+        "hosting": {
+          "provider": "",
+          "access": "",
+          "renewalDate": ""
+        },
+        "supportPeriod": "",
+        "maintenancePlan": "",
+        "attachments": [
+          {
+            "name": "",
+            "url": ""
+          }
+        ],
+        "startDate": "",
+        "endDate": "",
+        "status": "",
+        "priority": "",
+        "budget": 0,
+        "taxes": {
+          "IVA": 0,
+          "ISR": 0,
+          "retenciones": {
+            "IVA": 0,
+            "ISR": 0
+          }
+        },
+        "cost": [
+          {
+            "type": "",
+            "amount": 0,
+            "currency": ""
+          }
+        ],
+        "teamMembers": [
+          {
+            "id": "",
+            "name": "",
+            "role": "",
+            "email": ""
+          }
+        ]
+      }
+    ]
   }
 ]

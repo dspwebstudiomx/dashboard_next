@@ -2,6 +2,7 @@
 // Importaciones necesarias
 import BadgesDemo from "@/components/BadgesDemo";
 import ButtonDemo from "@/components/ButtonDemo";
+import Card from "@/components/Cards/Card";
 import CardsDemo from "@/components/CardsDemo";
 import type { Client } from "@/components/ClientForm";
 import ClientForm from "@/components/ClientForm";
@@ -51,13 +52,16 @@ export default function App() {
 				<div className="grid gap-4">
 					{clients && clients.length > 0 ? (
 						clients.map((client: Client) => (
-							<div key={client.id} className="border rounded-lg p-4 bg-gray-50">
-								<div className="font-bold text-lg">
-									{client.name} {client.lastName} {client.lastName2}
-								</div>
+							<Card
+								key={client.id}
+								title={
+									<div className="font-bold text-lg">
+										{client.name} {client.lastName} {client.lastName2}
+									</div>
+								}>
 								<div className="text-gray-600">Empresa: {client.company}</div>
 								<div className="text-gray-600">Email: {client.email}</div>
-							</div>
+							</Card>
 						))
 					) : (
 						<div className="text-gray-500">No hay clientes guardados.</div>

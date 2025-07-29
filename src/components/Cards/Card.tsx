@@ -1,6 +1,6 @@
 interface CardProps {
 	children: React.ReactNode;
-	title: string;
+	title: string | React.ReactNode;
 	titleSize?: "xs" | "sm" | "lg" | "md" | "xl" | "2xl" | "3xl";
 	alignTitle?: "left" | "center" | "right";
 }
