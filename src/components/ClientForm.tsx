@@ -11,8 +11,9 @@ import {
 	FaPhone,
 	FaUser,
 } from "react-icons/fa";
-import { FaInstagram, FaLinkedin } from "react-icons/fa6";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa6";
 import { IoPersonRemove } from "react-icons/io5";
+import { useClients } from "../hooks/useClients";
 import Button from "./Button/Button";
 import Card from "./Cards/Card";
 import H4 from "./Title/H4";
@@ -222,16 +223,16 @@ const emptyClient: Client = {
 
 interface ClientFormProps {
 	client?: Client;
-	onSave: (data: Client) => void;
 }
 
 const ClientForm = React.forwardRef(function ClientForm(
-	{ client = emptyClient, onSave }: ClientFormProps,
+	{ client = emptyClient }: ClientFormProps,
 	ref
 ) {
 	const [form, setForm] = useState<Client>(client);
 	const [message, setMessage] = useState<string>("");
 	const [error, setError] = useState<string>("");
+	const { handleCreateClient } = useClients();
 
 	useImperativeHandle(ref, () => ({
 		resetForm: () => setForm(emptyClient),
@@ -241,8 +242,6 @@ const ClientForm = React.forwardRef(function ClientForm(
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setForm({ ...form, [e.target.name]: e.target.value });
 	};
-
-	// Maneja cambios en campos anidados (ejemplo: contactPerson)
 
 	// Maneja cambios en el select de estado
 	const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -280,7 +279,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 		}
 	};
 
-	// Maneja el submit y muestra mensajes visuales
+	// Ahora el submit maneja la creación del cliente directamente
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setMessage("");
@@ -289,11 +288,11 @@ const ClientForm = React.forwardRef(function ClientForm(
 			// Genera un id único usando timestamp y nombre
 			const newClient = {
 				...form,
-				id: (Date.now() + Math.floor(Math.random() * 1000)).toString(), // id como string único
+				id: (Date.now() + Math.floor(Math.random() * 1000)).toString(),
 				createdAt: new Date().toISOString(),
 				updatedAt: new Date().toISOString(),
 			};
-			await onSave(newClient);
+			handleCreateClient(newClient);
 			setMessage("Cliente guardado correctamente.");
 		} catch {
 			setError("* Error al guardar el cliente.");
@@ -304,66 +303,266 @@ const ClientForm = React.forwardRef(function ClientForm(
 	return (
 		<Card title="Formulario de Cliente" titleSize="3xl" alignTitle="center">
 			<div className="h-2"></div>
-			<H4 align="center">Datos del Cliente</H4>
-			<div className="h-2"></div>
 			<form className="" onSubmit={handleSubmit}>
-				<div className="grid grid-cols-1 md:grid-cols-4  gap-12">
+				{/* DATOS PERSONALES */}
+				<div className="mb-12">
+					<H4 align="left">Datos personales</H4>
+					<div className="grid grid-cols-1 md:grid-cols-5 gap-12 mt-8">
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaUser className="text-primary-dark text-2xl" />
+								<label className="text-base">Nombre</label>
+							</div>
+							<input
+								name="name"
+								value={form.name}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.name
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaUser className="text-primary-dark text-2xl" />
+								<label className="text-base">Apellido Paterno</label>
+							</div>
+							<input
+								name="lastName"
+								value={form.lastName}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.lastName
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaUser className="text-primary-dark text-2xl" />
+								<label className="text-base">Apellido Materno</label>
+							</div>
+							<input
+								name="lastName2"
+								value={form.lastName2}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.lastName2
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaPhone className="text-primary-dark text-2xl" />
+								<label className="text-base">Teléfono</label>
+							</div>
+							<input
+								name="phone"
+								value={form.phone}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.phone
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaEnvelope className="text-primary-dark text-2xl" />
+								<label className="text-base">Correo Electrónico</label>
+							</div>
+							<input
+								name="email"
+								value={form.email}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.email
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+					</div>
+				</div>
+
+				{/* UBICACIÓN */}
+				<div className="mb-12">
+					<H4 align="left">Ubicación</H4>
+					<div className="grid grid-cols-1 md:grid-cols-4 gap-12 mt-8">
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
+								<label className="text-base">Dirección</label>
+							</div>
+							<input
+								name="address"
+								value={form.address}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.address
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
+								<label className="text-base">Ciudad</label>
+							</div>
+							<input
+								name="city"
+								value={form.city}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.city
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
+								<label className="text-base">Estado</label>
+							</div>
+							<select
+								name="state"
+								value={form.state}
+								onChange={handleSelectChange}
+								className="pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:bg-gray-700 dark:text-gray-300">
+								<option value="">Selecciona un estado</option>
+								<option value="Aguascalientes">Aguascalientes</option>
+								<option value="Baja California">Baja California</option>
+								<option value="Baja California Sur">Baja California Sur</option>
+								<option value="Campeche">Campeche</option>
+								<option value="Chiapas">Chiapas</option>
+								<option value="Chihuahua">Chihuahua</option>
+								<option value="Ciudad de México">Ciudad de México</option>
+								<option value="Coahuila">Coahuila</option>
+								<option value="Colima">Colima</option>
+								<option value="Durango">Durango</option>
+								<option value="Estado de México">Estado de México</option>
+								<option value="Guanajuato">Guanajuato</option>
+								<option value="Guerrero">Guerrero</option>
+								<option value="Hidalgo">Hidalgo</option>
+								<option value="Jalisco">Jalisco</option>
+								<option value="Michoacán">Michoacán</option>
+								<option value="Morelos">Morelos</option>
+								<option value="Nayarit">Nayarit</option>
+								<option value="Nuevo León">Nuevo León</option>
+								<option value="Oaxaca">Oaxaca</option>
+								<option value="Puebla">Puebla</option>
+								<option value="Querétaro">Querétaro</option>
+								<option value="Quintana Roo">Quintana Roo</option>
+								<option value="San Luis Potosí">San Luis Potosí</option>
+								<option value="Sinaloa">Sinaloa</option>
+								<option value="Sonora">Sonora</option>
+								<option value="Tabasco">Tabasco</option>
+								<option value="Tamaulipas">Tamaulipas</option>
+								<option value="Tlaxcala">Tlaxcala</option>
+								<option value="Veracruz">Veracruz</option>
+								<option value="Yucatán">Yucatán</option>
+								<option value="Zacatecas">Zacatecas</option>
+							</select>
+						</div>
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
+								<label className="text-base">Código Postal</label>
+							</div>
+							<input
+								name="zipCode"
+								value={form.zipCode}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.zipCode
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+					</div>
+				</div>
+
+				{/* REDES SOCIALES */}
+				<H4 align="left">Redes sociales</H4>
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-12 mt-2">
 					<div className="flex flex-col items-center gap-4">
 						<div className="flex items-center gap-2 justify-start w-full">
-							<FaUser className="text-primary-dark text-2xl" />
-							<label className="text-base">Nombre</label>
+							<FaFacebook className="text-primary-dark text-2xl" />
+							<label className="text-base">Facebook</label>
 						</div>
 						<input
-							name="name"
-							value={form.name}
-							onChange={handleChange}
+							name="facebook"
+							value={form.socialMedia.facebook}
+							onChange={(e) => handleNestedChange(e, "socialMedia")}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.name ? "bg-blue-200 text-primary-dark" : ""
+								form.socialMedia.facebook
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+									: ""
+							}`}
+						/>
+					</div>
+					<div className="flex flex-col items-center gap-4">
+						<div className="flex items-center gap-2 justify-start w-full">
+							<FaInstagram className="text-primary-dark text-2xl" />
+							<label className="text-base">Instagram</label>
+						</div>
+						<input
+							name="instagram"
+							value={form.socialMedia.instagram}
+							onChange={(e) => handleNestedChange(e, "socialMedia")}
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+								form.socialMedia.instagram
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+									: ""
+							}`}
+						/>
+					</div>
+					<div className="flex flex-col items-center gap-4">
+						<div className="flex items-center gap-2 justify-start w-full">
+							<FaLinkedin className="text-primary-dark text-2xl" />
+							<label className="text-base">LinkedIn</label>
+						</div>
+						<input
+							name="linkedin"
+							value={form.socialMedia.linkedin}
+							onChange={(e) => handleNestedChange(e, "socialMedia")}
+							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+								form.socialMedia.linkedin
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+									: ""
 							}`}
 						/>
 					</div>
 					<div className="flex flex-col items-center gap-4">
 						<div className="flex items-center gap-2 justify-start w-full">
 							<FaUser className="text-primary-dark text-2xl" />
-							<label className="text-base">Apellido Paterno</label>
+							<label className="text-base">X (Twitter)</label>
 						</div>
 						<input
-							name="lastName"
-							value={form.lastName}
-							onChange={handleChange}
+							name="x"
+							value={form.socialMedia.x}
+							onChange={(e) => handleNestedChange(e, "socialMedia")}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.lastName ? "bg-blue-200 text-primary-dark" : ""
+								form.socialMedia.x
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+									: ""
 							}`}
 						/>
 					</div>
-					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center gap-2 justify-start w-full">
-							<FaUser className="text-primary-dark text-2xl" />
-							<label className="text-base">Apellido Materno</label>
-						</div>
-						<input
-							name="lastName2"
-							value={form.lastName2}
-							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.lastName2 ? "bg-blue-200 text-primary-dark" : ""
-							}`}
-						/>
-					</div>
-					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center gap-2 justify-start w-full">
-							<FaPhone className="text-primary-dark text-2xl" />
-							<label className="text-base">Teléfono</label>
-						</div>
-						<input
-							name="phone"
-							value={form.phone}
-							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.phone ? "bg-blue-200 text-primary-dark" : ""
-							}`}
-						/>
-					</div>
+				</div>
+
+				{/* EMPRESA */}
+				<H4 align="left">Empresa</H4>
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-12">
 					<div className="flex flex-col items-center gap-4">
 						<div className="flex items-center gap-2 justify-start w-full">
 							<FaBuilding className="text-primary-dark text-2xl" />
@@ -374,7 +573,9 @@ const ClientForm = React.forwardRef(function ClientForm(
 							value={form.company}
 							onChange={handleChange}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.company ? "bg-blue-200 text-primary-dark" : ""
+								form.company
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+									: ""
 							}`}
 						/>
 					</div>
@@ -388,7 +589,9 @@ const ClientForm = React.forwardRef(function ClientForm(
 							value={form.website}
 							onChange={handleChange}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.website ? "bg-blue-200 text-primary-dark" : ""
+								form.website
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+									: ""
 							}`}
 						/>
 					</div>
@@ -402,69 +605,9 @@ const ClientForm = React.forwardRef(function ClientForm(
 							value={form.email}
 							onChange={handleChange}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.email ? "bg-blue-200 text-primary-dark" : ""
-							}`}
-						/>
-					</div>
-					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center gap-2 justify-start w-full">
-							{/* Facebook */}
-							<FaUser className="text-primary-dark text-2xl" />
-							<label className="text-base">Facebook</label>
-						</div>
-						<input
-							name="facebook"
-							value={form.socialMedia.facebook}
-							onChange={(e) => handleNestedChange(e, "socialMedia")}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.socialMedia.facebook ? "bg-blue-200 text-primary-dark" : ""
-							}`}
-						/>
-					</div>
-					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center gap-2 justify-start w-full">
-							{/* Instagram */}
-							<FaInstagram className="text-primary-dark text-2xl" />
-							<label className="text-base">Instagram</label>
-						</div>
-						<input
-							name="instagram"
-							value={form.socialMedia.instagram}
-							onChange={(e) => handleNestedChange(e, "socialMedia")}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.socialMedia.instagram
-									? "bg-blue-200 text-primary-dark"
+								form.email
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
 									: ""
-							}`}
-						/>
-					</div>
-					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center gap-2 justify-start w-full">
-							{/* LinkedIn */}
-							<FaLinkedin className="text-primary-dark text-2xl" />
-							<label className="text-base">LinkedIn</label>
-						</div>
-						<input
-							name="linkedin"
-							value={form.socialMedia.linkedin}
-							onChange={(e) => handleNestedChange(e, "socialMedia")}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.socialMedia.linkedin ? "bg-blue-200 text-primary-dark" : ""
-							}`}
-						/>
-					</div>
-					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center gap-2 justify-start w-full">
-							{/* X (Twitter) */}
-							<FaUser className="text-primary-dark text-2xl" />
-							<label className="text-base">X (Twitter)</label>
-						</div>
-						<input
-							name="x"
-							value={form.socialMedia.x}
-							onChange={(e) => handleNestedChange(e, "socialMedia")}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.socialMedia.x ? "bg-blue-200 text-primary-dark" : ""
 							}`}
 						/>
 					</div>
@@ -478,7 +621,9 @@ const ClientForm = React.forwardRef(function ClientForm(
 							value={form.industry}
 							onChange={handleSelectChange}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.industry ? "bg-blue-200 text-primary-dark" : ""
+								form.industry
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+									: ""
 							}`}>
 							<option value="">Selecciona una industria</option>
 							<option value="Tecnología">Tecnología</option>
@@ -497,93 +642,11 @@ const ClientForm = React.forwardRef(function ClientForm(
 							<option value="Otra">Otra</option>
 						</select>
 					</div>
-					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center gap-2 justify-start w-full">
-							<FaMapMarkerAlt className="text-primary-dark text-2xl" />
-							<label className="text-base">Dirección</label>
-						</div>
-						<input
-							name="address"
-							value={form.address}
-							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.address ? "bg-blue-200 text-primary-dark" : ""
-							}`}
-						/>
-					</div>
-					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center gap-2 justify-start w-full">
-							<FaMapMarkerAlt className="text-primary-dark text-2xl" />
-							<label className="text-base">Ciudad</label>
-						</div>
-						<input
-							name="city"
-							value={form.city}
-							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.city ? "bg-blue-200 text-primary-dark" : ""
-							}`}
-						/>
-					</div>
-					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center gap-2 justify-start w-full">
-							<FaMapMarkerAlt className="text-primary-dark text-2xl" />
-							<label className="text-base">Estado</label>
-						</div>
-						<select
-							name="state"
-							value={form.state}
-							onChange={handleSelectChange}
-							className="pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2">
-							<option value="">Selecciona un estado</option>
-							<option value="Aguascalientes">Aguascalientes</option>
-							<option value="Baja California">Baja California</option>
-							<option value="Baja California Sur">Baja California Sur</option>
-							<option value="Campeche">Campeche</option>
-							<option value="Chiapas">Chiapas</option>
-							<option value="Chihuahua">Chihuahua</option>
-							<option value="Ciudad de México">Ciudad de México</option>
-							<option value="Coahuila">Coahuila</option>
-							<option value="Colima">Colima</option>
-							<option value="Durango">Durango</option>
-							<option value="Estado de México">Estado de México</option>
-							<option value="Guanajuato">Guanajuato</option>
-							<option value="Guerrero">Guerrero</option>
-							<option value="Hidalgo">Hidalgo</option>
-							<option value="Jalisco">Jalisco</option>
-							<option value="Michoacán">Michoacán</option>
-							<option value="Morelos">Morelos</option>
-							<option value="Nayarit">Nayarit</option>
-							<option value="Nuevo León">Nuevo León</option>
-							<option value="Oaxaca">Oaxaca</option>
-							<option value="Puebla">Puebla</option>
-							<option value="Querétaro">Querétaro</option>
-							<option value="Quintana Roo">Quintana Roo</option>
-							<option value="San Luis Potosí">San Luis Potosí</option>
-							<option value="Sinaloa">Sinaloa</option>
-							<option value="Sonora">Sonora</option>
-							<option value="Tabasco">Tabasco</option>
-							<option value="Tamaulipas">Tamaulipas</option>
-							<option value="Tlaxcala">Tlaxcala</option>
-							<option value="Veracruz">Veracruz</option>
-							<option value="Yucatán">Yucatán</option>
-							<option value="Zacatecas">Zacatecas</option>
-						</select>
-					</div>
-					<div className="flex flex-col items-center gap-4">
-						<div className="flex items-center gap-2 justify-start w-full">
-							<FaMapMarkerAlt className="text-primary-dark text-2xl" />
-							<label className="text-base">Código Postal</label>
-						</div>
-						<input
-							name="zipCode"
-							value={form.zipCode}
-							onChange={handleChange}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.zipCode ? "bg-blue-200 text-primary-dark" : ""
-							}`}
-						/>
-					</div>
+				</div>
+
+				{/* OTROS CAMPOS */}
+				<H4 align="left">Otros</H4>
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-12">
 					<div className="flex flex-col items-center gap-4">
 						<div className="flex items-center gap-2 justify-start w-full">
 							<FaFileSignature className="text-primary-dark text-2xl" />
@@ -594,7 +657,9 @@ const ClientForm = React.forwardRef(function ClientForm(
 							value={form.logoUrl}
 							onChange={handleChange}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.logoUrl ? "bg-blue-200 text-primary-dark" : ""
+								form.logoUrl
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+									: ""
 							}`}
 						/>
 					</div>
@@ -608,7 +673,9 @@ const ClientForm = React.forwardRef(function ClientForm(
 							value={form.paymentTerms}
 							onChange={handleSelectChange}
 							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.paymentTerms ? "bg-blue-200 text-primary-dark" : ""
+								form.paymentTerms
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+									: ""
 							}`}>
 							<option value="">Selecciona una opción</option>
 							<option value="Contado">Contado</option>
@@ -633,8 +700,10 @@ const ClientForm = React.forwardRef(function ClientForm(
 							value={form.notes}
 							onChange={(e) => setForm({ ...form, notes: e.target.value })}
 							rows={8}
-							className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-								form.notes ? "bg-blue-200 text-primary-dark" : ""
+							className={`p-6 input w-full rounded-2xl border-2 border-blue-800 ${
+								form.notes
+									? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+									: ""
 							}`}
 						/>
 					</div>
@@ -653,7 +722,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.contactPerson?.name
-										? "bg-blue-200 text-primary-dark"
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -669,7 +738,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.contactPerson?.role
-										? "bg-blue-200 text-primary-dark"
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -685,7 +754,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.contactPerson?.email
-										? "bg-blue-200 text-primary-dark"
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -701,7 +770,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.contactPerson?.phone
-										? "bg-blue-200 text-primary-dark"
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -774,5 +843,4 @@ const ClientForm = React.forwardRef(function ClientForm(
 		</Card>
 	);
 });
-
 export default ClientForm;

@@ -422,5 +422,122 @@
         ]
       }
     ]
+  },
+  {
+    "id": "1753755351987",
+    "name": "Alexis Daniel",
+    "lastName": "Vallarta ",
+    "lastName2": "Pérez",
+    "address": "",
+    "city": "",
+    "state": "",
+    "zipCode": "",
+    "country": "",
+    "company": "",
+    "email": "",
+    "phone": "",
+    "website": "",
+    "industry": "",
+    "contactPerson": {
+      "name": "",
+      "role": "",
+      "email": "",
+      "phone": ""
+    },
+    "socialMedia": {
+      "facebook": "",
+      "instagram": "",
+      "linkedin": "",
+      "twitter": "",
+      "x": "",
+      "website": ""
+    },
+    "logoUrl": "",
+    "paymentTerms": "",
+    "billingInfo": {
+      "razonSocial": "",
+      "direccionFiscal": "",
+      "RFC": "",
+      "emailFacturacion": ""
+    },
+    "activeProjectsCount": 0,
+    "lastInvoiceDate": "",
+    "createdAt": "2025-07-29T02:15:51.744Z",
+    "updatedAt": "2025-07-29T02:15:51.745Z",
+    "status": "",
+    "notes": "",
+    "RFC": "",
+    "CURP": "",
+    "projects": [
+      {
+        "id": "",
+        "name": "",
+        "description": "",
+        "type": "",
+        "technologies": [
+          ""
+        ],
+        "deliverables": [
+          ""
+        ],
+        "milestones": [
+          {
+            "name": "",
+            "date": ""
+          }
+        ],
+        "clientFeedback": "",
+        "repositoryUrl": "",
+        "socialMedia": {
+          "facebook": "",
+          "instagram": "",
+          "linkedin": "",
+          "twitter": "",
+          "x": "",
+          "website": ""
+        },
+        "hosting": {
+          "provider": "",
+          "access": "",
+          "renewalDate": ""
+        },
+        "supportPeriod": "",
+        "maintenancePlan": "",
+        "attachments": [
+          {
+            "name": "",
+            "url": ""
+          }
+        ],
+        "startDate": "",
+        "endDate": "",
+        "status": "",
+        "priority": "",
+        "budget": 0,
+        "taxes": {
+          "IVA": 0,
+          "ISR": 0,
+          "retenciones": {
+            "IVA": 0,
+            "ISR": 0
+          }
+        },
+        "cost": [
+          {
+            "type": "",
+            "amount": 0,
+            "currency": ""
+          }
+        ],
+        "teamMembers": [
+          {
+            "id": "",
+            "name": "",
+            "role": "",
+            "email": ""
+          }
+        ]
+      }
+    ]
   }
 ]
