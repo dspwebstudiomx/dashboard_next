@@ -486,7 +486,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 				{/* EMPRESA */}
 				<div className="mb-24">
 					<H4 align="center">Empresa</H4>
-					<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+					<div className="grid grid-cols-1 md:grid-cols-5 gap-6 mt-8">
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaBuilding className="text-primary-dark text-2xl" />
@@ -562,6 +562,30 @@ const ClientForm = React.forwardRef(function ClientForm(
 								</option>
 								<option value="Turismo">Turismo</option>
 								<option value="Servicios">Servicios</option>
+								<option value="Otra">Otra</option>
+							</select>
+						</div>
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaFileSignature className="text-primary-dark text-2xl" />
+								<label className="text-base">Condiciones de pago</label>
+							</div>
+							<select
+								required
+								name="paymentTerms"
+								value={form.paymentTerms}
+								onChange={handleSelectChange}
+								className="pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:bg-gray-700 dark:text-gray-300">
+								<option value="">Selecciona una opción</option>
+								<option value="Contado">Contado</option>
+								<option value="7 días">7 días</option>
+								<option value="15 días">15 días</option>
+								<option value="30 días">30 días</option>
+								<option value="60 días">60 días</option>
+								<option value="90 días">90 días</option>
+								<option value="Anticipo 50% y 50% a la entrega">
+									Anticipo 50% y 50% a la entrega
+								</option>
 								<option value="Otra">Otra</option>
 							</select>
 						</div>
@@ -686,30 +710,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								}`}
 							/>
 						</div>
-						<div className="flex flex-col items-center gap-4">
-							<div className="flex items-center gap-2 justify-start w-full">
-								<FaFileSignature className="text-primary-dark text-2xl" />
-								<label className="text-base">Condiciones de pago</label>
-							</div>
-							<select
-								required
-								name="paymentTerms"
-								value={form.paymentTerms}
-								onChange={handleSelectChange}
-								className="pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 dark:bg-gray-700 dark:text-gray-300">
-								<option value="">Selecciona una opción</option>
-								<option value="Contado">Contado</option>
-								<option value="7 días">7 días</option>
-								<option value="15 días">15 días</option>
-								<option value="30 días">30 días</option>
-								<option value="60 días">60 días</option>
-								<option value="90 días">90 días</option>
-								<option value="Anticipo 50% y 50% a la entrega">
-									Anticipo 50% y 50% a la entrega
-								</option>
-								<option value="Otra">Otra</option>
-							</select>
-						</div>
+
 						<div className="flex flex-col items-center gap-4 md:col-span-2">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaFileSignature className="text-primary-dark text-2xl" />
