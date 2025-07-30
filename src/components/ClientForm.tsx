@@ -26,6 +26,7 @@ interface TeamMember {
 	email: string;
 }
 
+//* OK
 interface Project {
 	id: string;
 	name: string;
@@ -69,6 +70,7 @@ interface Project {
 	teamMembers: TeamMember[];
 }
 
+//! Estructurar del cliente conforme al formulario
 export interface Client {
 	id: string;
 	name: string;
@@ -323,7 +325,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 				{/* DATOS PERSONALES */}
 				<div className="mb-24">
 					<H4 align="center">Datos personales</H4>
-					<div className="grid grid-cols-1 md:grid-cols-5 gap-6 mt-12">
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaUser className="text-primary-dark text-2xl" />
@@ -486,11 +488,12 @@ const ClientForm = React.forwardRef(function ClientForm(
 				{/* EMPRESA */}
 				<div className="mb-24">
 					<H4 align="center">Empresa</H4>
-					<div className="grid grid-cols-1 md:grid-cols-5 gap-6 mt-8">
+					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+						{/* Nombre Empresa */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaBuilding className="text-primary-dark text-2xl" />
-								<label className="text-base">Empresa</label>
+								<label className="text-base">Nombre de la Empresa</label>
 							</div>
 							<input
 								required
@@ -504,40 +507,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 								}`}
 							/>
 						</div>
-						<div className="flex flex-col items-center gap-4">
-							<div className="flex items-center gap-2 justify-start w-full">
-								<FaGlobe className="text-primary-dark text-2xl" />
-								<label className="text-base">Sitio Web</label>
-							</div>
-							<input
-								required
-								name="website"
-								value={form.website}
-								onChange={handleChange}
-								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-									form.website
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
-										: ""
-								}`}
-							/>
-						</div>
-						<div className="flex flex-col items-center gap-4">
-							<div className="flex items-center gap-2 justify-start w-full">
-								<FaEnvelope className="text-primary-dark text-2xl" />
-								<label className="text-base">Email</label>
-							</div>
-							<input
-								required
-								name="email"
-								value={form.email}
-								onChange={handleChange}
-								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-									form.email
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
-										: ""
-								}`}
-							/>
-						</div>
+
+						{/* Industria */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaIndustry className="text-primary-dark text-2xl" />
@@ -565,6 +536,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								<option value="Otra">Otra</option>
 							</select>
 						</div>
+						{/* Condiciones de pago */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaFileSignature className="text-primary-dark text-2xl" />
@@ -589,12 +561,68 @@ const ClientForm = React.forwardRef(function ClientForm(
 								<option value="Otra">Otra</option>
 							</select>
 						</div>
+						{/* RFC */}
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaEnvelope className="text-primary-dark text-2xl" />
+								<label className="text-base">RFC</label>
+							</div>
+							<input
+								required
+								name="rfc"
+								value={form.RFC}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.RFC
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+						{/* Sitio Web */}
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaGlobe className="text-primary-dark text-2xl" />
+								<label className="text-base">Sitio Web</label>
+							</div>
+							<input
+								required
+								name="website"
+								value={form.website}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.website
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+						{/* Email */}
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaEnvelope className="text-primary-dark text-2xl" />
+								<label className="text-base">Email</label>
+							</div>
+							<input
+								required
+								name="email"
+								value={form.email}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.email
+										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
 					</div>
+					{/* Segunda Sección */}
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+						{/* Dirección */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
-								<label className="text-base">Dirección</label>
+								<label className="text-base">Calle</label>
 							</div>
 							<input
 								required
@@ -608,6 +636,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								}`}
 							/>
 						</div>
+						{/* Ciudad */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
@@ -625,6 +654,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								}`}
 							/>
 						</div>
+						{/* Estado */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
@@ -670,6 +700,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								<option value="Zacatecas">Zacatecas</option>
 							</select>
 						</div>
+						{/* Código Postal */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
