@@ -1,0 +1,217 @@
+[
+	{
+		"id": 1,
+		"name": "Client Name",
+		"fulllName": "Full Client Name",
+		"fullName2": "Full Client Name 2",
+		"contact": {
+			"email": "client@example.com",
+			"phone": "123-456-7890"
+		},
+		"location": {
+			"country": "Country Name",
+			"state": "State Name",
+			"city": "City Name",
+			"address": "123 Main St",
+			"zipCode": "12345"
+		},
+		"enterprise": {
+			"logo": "https://ejemplo.com/logo.png",
+			"location": {
+				"country": "Country Name",
+				"state": "State Name",
+				"city": "City Name",
+				"address": "123 Main St",
+				"zipCode": "12345"
+			},
+			"socialMedia": {
+				"facebook": "",
+				"instagram": "",
+				"linkedin": "",
+				"x": "",
+				"youtube": "",
+				"tiktok": ""
+			},
+			"contactPerson": {
+				"name": "Client Name",
+				"fulllName": "Full Client Name",
+				"fullName2": "Full Client Name 2",
+				"email": "client@example.com",
+				"phone": "123-456-7890",
+				"phoneExtension": "123"
+			},
+			"projects": [
+				{
+					"id": 1,
+					"name": "Project Name",
+					"description": "Project Description",
+					"logo": "https://ejemplo.com/project-logo.png",
+					"services": ["Consultoría Web", "Desarrollo Web"],
+					"sections": ["Inicio", "Contacto", "Facturación"],
+					"billing": {
+						"razonSocial": "Ejemplo S.A. de C.V.",
+						"direccionFiscal": "Calle Falsa 123, Ciudad, País",
+						"RFC": "RFC123456789",
+						"emailFacturacion": "facturacion@ejemplo.com",
+						"costs": {
+							"total": 15000,
+							"currency": "MXN",
+							"paymentTerms": "15 días"
+						}
+					},
+					"status": "active",
+					"createdAt": "2025-07-23T20:04:40.483Z",
+					"updatedAt": "2025-07-23T20:04:40.483Z",
+					"type": "Web Development",
+					"technologies": ["React", "Node.js", "TypeScript"],
+					"deliverables": [
+						"Sitio Web",
+						"Manual de Usuario",
+						"Documentación Técnica"
+					],
+					"milestones": [
+						{
+							"id": 1,
+							"name": "Diseño UI",
+							"description": "Entrega de prototipos de interfaz de usuario",
+							"dueDate": "2025-08-01T00:00:00.000Z",
+							"status": "in_progress"
+						},
+						{
+							"id": 2,
+							"name": "Desarrollo Backend",
+							"description": "Implementación de la API y base de datos",
+							"dueDate": "2025-09-01T00:00:00.000Z",
+							"status": "pending"
+						},
+						{
+							"id": 3,
+							"name": "Entrega Final",
+							"description": "Deploy y capacitación al cliente",
+							"dueDate": "2025-10-01T00:00:00.000Z",
+							"status": "pending"
+						}
+					],
+					"clientFeedback": "Muy satisfecho con el avance inicial.",
+					"repositoryUrl": "https://github.com/ejemplo/proyecto",
+					"hosting": {
+						"provider": "Vercel",
+						"access": "admin@ejemplo.com",
+						"renewalDate": "2026-07-23"
+					},
+					"socialMedia": {
+						"facebook": "https://facebook.com/ejemplo",
+						"instagram": "https://instagram.com/ejemplo",
+						"linkedin": "https://linkedin.com/company/ejemplo",
+						"x": "https://x.com/ejemplo",
+						"youtube": "https://youtube.com/ejemplo",
+						"tiktok": "https://tiktok.com/@ejemplo"
+					},
+					"website": "https://proyecto.ejemplo.com",
+					"supportPeriod": "12 meses",
+					"maintenancePlan": "Básico",
+					"attachments": [
+						{ "name": "Contrato", "url": "https://ejemplo.com/contrato.pdf" },
+						{ "name": "Manual", "url": "https://ejemplo.com/manual.pdf" },
+						{
+							"name": "Plan de Proyecto",
+							"url": "https://ejemplo.com/plan-proyecto.pdf"
+						},
+						{
+							"name": "Especificaciones Técnicas",
+							"url": "https://ejemplo.com/especificaciones.pdf"
+						}
+					],
+					"startDate": "2025-07-01",
+					"endDate": "2025-10-01",
+					"priority": "alta",
+					"finance": {
+						"budget": 20000,
+						"taxes": {
+							"IVA": 3200,
+							"ISR": 1500,
+							"retenciones": { "IVA": 500, "ISR": 200 }
+						},
+						"cost": [
+							{ "type": "Desarrollo", "amount": 12000, "currency": "MXN" },
+							{ "type": "Diseño", "amount": 3000, "currency": "MXN" },
+							{ "type": "Soporte", "amount": 5000, "currency": "MXN" }
+						],
+						"RFC": "RFC123456789",
+						"CURP": "CURP123456HDFABC01"
+					},
+					"teamMembers": [
+						{
+							"id": 1,
+							"name": "Juan Pérez",
+							"role": "Desarrollador",
+							"email": "juan@ejemplo.com"
+						},
+						{
+							"id": 2,
+							"name": "Ana López",
+							"role": "Diseñadora",
+							"email": "ana@ejemplo.com"
+						},
+						{
+							"id": 3,
+							"name": "Carlos García",
+							"role": "Gerente de Proyecto",
+							"email": "carlos@ejemplo.com"
+						},
+						{
+							"id": 4,
+							"name": "Laura Martínez",
+							"role": "Tester",
+							"email": "ana@ejemplo.com"
+						}
+					],
+					"tasks": [
+						{
+							"id": 1,
+							"name": "Tarea de Ejemplo",
+							"description": "Descripción de la tarea de ejemplo",
+							"dueDate": "2025-08-15T00:00:00.000Z",
+							"status": "pending",
+							"assignedTo": {
+								"id": 1,
+								"name": "Juan Pérez",
+								"role": "Desarrollador",
+								"email": "juan@ejemplo.com"
+							},
+							"comments": [
+								{
+									"id": 1,
+									"author": {
+										"id": 2,
+										"name": "Ana López",
+										"role": "Diseñadora",
+										"email": "ana@ejemplo.com"
+									},
+									"content": "Comentario sobre la tarea de ejemplo",
+									"createdAt": "2025-07-24T10:00:00.000Z",
+									"updatedAt": "2025-07-24T10:00:00.000Z",
+									"replies": [
+										{
+											"id": 1,
+											"author": {
+												"id": 1,
+												"name": "Juan Pérez",
+												"role": "Desarrollador",
+												"email": "juan@ejemplo.com"
+											},
+											"content": "Respuesta al comentario de Ana",
+											"createdAt": "2025-07-24T10:00:00.000Z",
+											"updatedAt": "2025-07-24T10:00:00.000Z"
+										}
+									]
+								}
+							]
+						}
+					],
+					"notes": "Notas adicionales sobre el proyecto."
+				}
+			]
+		}
+	}
+]

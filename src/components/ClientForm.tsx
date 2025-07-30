@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useImperativeHandle, useState } from "react";
 import {
 	FaBuilding,
@@ -26,48 +27,12 @@ interface TeamMember {
 	email: string;
 }
 
-//* OK
-interface Project {
-	id: string;
-	name: string;
-	description: string;
-	type: string;
-	technologies: string[];
-	deliverables: string[];
-	milestones: { name: string; date: string }[];
-	clientFeedback: string;
-	repositoryUrl: string;
-	hosting: {
-		provider: string;
-		access: string;
-		renewalDate: string;
-	};
-	socialMedia: {
-		facebook: string;
-		instagram: string;
-		linkedin: string;
-		twitter: string;
-		x: string;
-		website: string;
-	};
-	supportPeriod: string;
-	maintenancePlan: string;
-	attachments: { name: string; url: string }[];
-	startDate: string;
-	endDate: string;
-	status: string;
-	priority: string;
-	budget: number;
-	taxes: {
-		IVA: number;
-		ISR: number;
-		retenciones: {
-			IVA: number;
-			ISR: number;
-		};
-	};
-	cost: { type: string; amount: number; currency: string }[];
-	teamMembers: TeamMember[];
+interface SocialMedia {
+	facebook: string;
+	instagram: string;
+	linkedin: string;
+	twitter: string;
+	x: string;
 }
 
 //! Estructurar del cliente conforme al formulario
@@ -86,14 +51,9 @@ export interface Client {
 	phone: string;
 	website: string;
 	industry: string;
-	socialMedia: {
-		facebook: string;
-		instagram: string;
-		linkedin: string;
-		twitter: string;
-		x: string;
-		website: string;
-	};
+	RFC: string;
+	CURP: string;
+	socialMedia: SocialMedia;
 	contactPerson: {
 		name: string;
 		role: string;
@@ -114,9 +74,47 @@ export interface Client {
 	updatedAt: string;
 	status: string;
 	notes: string;
+	projects: Project[];
+}
+
+//* OK
+interface Project {
+	id: string;
+	name: string;
+	description: string;
+	type: string;
+	technologies: string[];
+	deliverables: string[];
+	milestones: { name: string; date: string }[];
+	clientFeedback: string;
+	repositoryUrl: string;
+	hosting: {
+		provider: string;
+		access: string;
+		renewalDate: string;
+	};
+	socialMedia: SocialMedia;
+	website: string;
 	RFC: string;
 	CURP: string;
-	projects: Project[];
+	supportPeriod: string;
+	maintenancePlan: string;
+	attachments: { name: string; url: string }[];
+	startDate: string;
+	endDate: string;
+	status: string;
+	priority: string;
+	budget: number;
+	taxes: {
+		IVA: number;
+		ISR: number;
+		retenciones: {
+			IVA: number;
+			ISR: number;
+		};
+	};
+	cost: { type: string; amount: number; currency: string }[];
+	teamMembers: TeamMember[];
 }
 
 const emptyClient: Client = {
@@ -134,19 +132,20 @@ const emptyClient: Client = {
 	phone: "",
 	website: "",
 	industry: "",
-	contactPerson: {
-		name: "",
-		role: "",
-		email: "",
-		phone: "",
-	},
+	RFC: "",
+	CURP: "",
 	socialMedia: {
 		facebook: "",
 		instagram: "",
 		linkedin: "",
 		twitter: "",
 		x: "",
-		website: "",
+	},
+	contactPerson: {
+		name: "",
+		role: "",
+		email: "",
+		phone: "",
 	},
 	logoUrl: "",
 	paymentTerms: "",
@@ -162,8 +161,6 @@ const emptyClient: Client = {
 	updatedAt: "",
 	status: "",
 	notes: "",
-	RFC: "",
-	CURP: "",
 	projects: [
 		{
 			id: "",
@@ -175,19 +172,21 @@ const emptyClient: Client = {
 			milestones: [{ name: "", date: "" }],
 			clientFeedback: "",
 			repositoryUrl: "",
+			hosting: {
+				provider: "",
+				access: "",
+				renewalDate: "",
+			},
 			socialMedia: {
 				facebook: "",
 				instagram: "",
 				linkedin: "",
 				twitter: "",
 				x: "",
-				website: "",
 			},
-			hosting: {
-				provider: "",
-				access: "",
-				renewalDate: "",
-			},
+			website: "",
+			RFC: "",
+			CURP: "",
 			supportPeriod: "",
 			maintenancePlan: "",
 			attachments: [{ name: "", url: "" }],
@@ -314,6 +313,25 @@ const ClientForm = React.forwardRef(function ClientForm(
 			setMessage("Cliente guardado correctamente.");
 		} catch {
 			setError("* Error al guardar el cliente.");
+		}
+	};
+
+	const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+		const file = e.target.files?.[0];
+		if (!file) return;
+		const formData = new FormData();
+		formData.append("file", file);
+		try {
+			const res = await fetch("/api/upload", {
+				method: "POST",
+				body: formData,
+			});
+			const data = await res.json();
+			if (data.url) {
+				setForm((prev) => ({ ...prev, logoUrl: data.url }));
+			}
+		} catch {
+			setError("Error al subir la imagen");
 		}
 	};
 
@@ -569,7 +587,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 							</div>
 							<input
 								required
-								name="rfc"
+								name="RFC"
 								value={form.RFC}
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
@@ -725,23 +743,29 @@ const ClientForm = React.forwardRef(function ClientForm(
 				<div className="mb-24">
 					<H4 align="center">Otros</H4>
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-12 mt-12">
+						{/* guardar imagen en clients.json del cliente */}
 						<div className="flex flex-col items-center gap-4">
-							<div className="flex items-center gap-2 justify-start w-full">
-								<FaFileSignature className="text-primary-dark text-2xl" />
-								<label className="text-base">Logo URL</label>
-							</div>
+							<div
+								id="adjuntar imagen"
+								className="flex items-center gap-2 justify-start w-full"></div>
 							<input
-								name="logoUrl"
-								value={form.logoUrl}
-								onChange={handleChange}
-								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
-									form.logoUrl
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
-										: ""
-								}`}
+								type="file"
+								accept="image/*"
+								onChange={handleImageUpload}
+								className="pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 bg-white dark:bg-gray-700 dark:text-gray-300"
 							/>
+							{form.logoUrl && (
+								<div className="mt-2">
+									<Image
+										src={form.logoUrl}
+										alt="Logo"
+										width={120}
+										height={96}
+										className="rounded-xl border object-contain"
+									/>
+								</div>
+							)}
 						</div>
-
 						<div className="flex flex-col items-center gap-4 md:col-span-2">
 							<div className="flex items-center gap-2 justify-start w-full">
 								<FaFileSignature className="text-primary-dark text-2xl" />
@@ -869,7 +893,6 @@ const ClientForm = React.forwardRef(function ClientForm(
 									linkedin: "",
 									twitter: "",
 									x: "",
-									website: "",
 								},
 							});
 							scrollToTop();
