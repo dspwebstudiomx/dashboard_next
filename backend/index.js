@@ -1,6 +1,8 @@
+
 import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 // import fs from "fs";
-// import path from "path";
 
 import cors from "./cors.js";
 import clientsRouter from "./routes/clients.js";
@@ -12,9 +14,9 @@ import uploadRouter from "./upload.js";
 const app = express(); // Crear una instancia de Express
 const PORT = 3001; // Puerto del backend
 
-// Obtener dirname en ES Modules (si lo necesitas para otras rutas, descomenta)
-// import { fileURLToPath } from "url";
-// const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Obtener __dirname en ES Modules
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.use(express.json()); // Middleware para parsear JSON
 app.use(cors); // Middleware para habilitar CORS

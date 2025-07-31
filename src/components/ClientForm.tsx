@@ -12,7 +12,12 @@ import {
 	FaPhone,
 	FaUser,
 } from "react-icons/fa";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa6";
+import {
+	FaFacebook,
+	FaIdBadge,
+	FaInstagram,
+	FaLinkedin,
+} from "react-icons/fa6";
 import { IoPersonRemove } from "react-icons/io5";
 import { useClients } from "../hooks/useClients";
 import Button from "./Button/Button";
@@ -346,8 +351,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-primary-dark text-2xl" />
-								<label className="text-base">Nombre</label>
+								<FaUser className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Nombre</label>
 							</div>
 							<input
 								required
@@ -356,15 +361,17 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.name
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-primary-dark text-2xl" />
-								<label className="text-base">Apellido Paterno</label>
+								<FaUser className="text-dark text-2xl" />
+								<label className="text-base font-semibold">
+									Apellido Paterno
+								</label>
 							</div>
 							<input
 								required
@@ -373,15 +380,17 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.lastName
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-primary-dark text-2xl" />
-								<label className="text-base">Apellido Materno</label>
+								<FaUser className="text-dark text-2xl" />
+								<label className="text-base font-semibold">
+									Apellido Materno
+								</label>
 							</div>
 							<input
 								required
@@ -390,15 +399,15 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.lastName2
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaPhone className="text-primary-dark text-2xl" />
-								<label className="text-base">Teléfono</label>
+								<FaPhone className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Teléfono</label>
 							</div>
 							<input
 								required
@@ -407,15 +416,17 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.phone
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaEnvelope className="text-primary-dark text-2xl" />
-								<label className="text-base">Correo Electrónico</label>
+								<FaEnvelope className="text-dark text-2xl" />
+								<label className="text-base font-semibold">
+									Correo Electrónico
+								</label>
 							</div>
 							<input
 								required
@@ -424,7 +435,24 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.email
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
+										: ""
+								}`}
+							/>
+						</div>
+						<div className="flex flex-col items-center gap-4">
+							<div className="flex items-center gap-2 justify-start w-full">
+								<FaIdBadge className="text-dark text-2xl" />
+								<label className="text-base font-semibold">CURP</label>
+							</div>
+							<input
+								required
+								name="CURP"
+								value={form.CURP}
+								onChange={handleChange}
+								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
+									form.CURP
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -438,8 +466,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaFacebook className="text-primary-dark text-2xl" />
-								<label className="text-base">Facebook</label>
+								<FaFacebook className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Facebook</label>
 							</div>
 							<input
 								name="facebook"
@@ -447,15 +475,15 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "socialMedia")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.socialMedia.facebook
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaInstagram className="text-primary-dark text-2xl" />
-								<label className="text-base">Instagram</label>
+								<FaInstagram className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Instagram</label>
 							</div>
 							<input
 								name="instagram"
@@ -463,15 +491,15 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "socialMedia")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.socialMedia.instagram
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaLinkedin className="text-primary-dark text-2xl" />
-								<label className="text-base">LinkedIn</label>
+								<FaLinkedin className="text-dark text-2xl" />
+								<label className="text-base font-semibold">LinkedIn</label>
 							</div>
 							<input
 								name="linkedin"
@@ -479,15 +507,15 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "socialMedia")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.socialMedia.linkedin
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-primary-dark text-2xl" />
-								<label className="text-base">X (Twitter)</label>
+								<FaUser className="text-dark text-2xl" />
+								<label className="text-base font-semibold">X (Twitter)</label>
 							</div>
 							<input
 								name="x"
@@ -495,7 +523,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "socialMedia")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.socialMedia.x
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -510,8 +538,10 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Nombre Empresa */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaBuilding className="text-primary-dark text-2xl" />
-								<label className="text-base">Nombre de la Empresa</label>
+								<FaBuilding className="text-dark text-2xl" />
+								<label className="text-base font-semibold">
+									Nombre de la Empresa
+								</label>
 							</div>
 							<input
 								required
@@ -520,7 +550,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.company
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -529,8 +559,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Industria */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaIndustry className="text-primary-dark text-2xl" />
-								<label className="text-base">Industria</label>
+								<FaIndustry className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Industria</label>
 							</div>
 							<select
 								name="industry"
@@ -557,8 +587,10 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Condiciones de pago */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaFileSignature className="text-primary-dark text-2xl" />
-								<label className="text-base">Condiciones de pago</label>
+								<FaFileSignature className="text-dark text-2xl" />
+								<label className="text-base font-semibold">
+									Condiciones de pago
+								</label>
 							</div>
 							<select
 								required
@@ -582,8 +614,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* RFC */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaEnvelope className="text-primary-dark text-2xl" />
-								<label className="text-base">RFC</label>
+								<FaEnvelope className="text-dark text-2xl" />
+								<label className="text-base font-semibold">RFC</label>
 							</div>
 							<input
 								required
@@ -592,7 +624,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.RFC
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -600,8 +632,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Sitio Web */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaGlobe className="text-primary-dark text-2xl" />
-								<label className="text-base">Sitio Web</label>
+								<FaGlobe className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Sitio Web</label>
 							</div>
 							<input
 								required
@@ -610,7 +642,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.website
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -618,8 +650,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Email */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaEnvelope className="text-primary-dark text-2xl" />
-								<label className="text-base">Email</label>
+								<FaEnvelope className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Email</label>
 							</div>
 							<input
 								required
@@ -628,7 +660,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.email
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -639,8 +671,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Dirección */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
-								<label className="text-base">Calle</label>
+								<FaMapMarkerAlt className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Calle</label>
 							</div>
 							<input
 								required
@@ -649,7 +681,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.address
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -657,8 +689,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Ciudad */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
-								<label className="text-base">Ciudad</label>
+								<FaMapMarkerAlt className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Ciudad</label>
 							</div>
 							<input
 								required
@@ -667,7 +699,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.city
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -675,8 +707,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Estado */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
-								<label className="text-base">Estado</label>
+								<FaMapMarkerAlt className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Estado</label>
 							</div>
 							<select
 								name="state"
@@ -721,8 +753,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Código Postal */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
-								<label className="text-base">Código Postal</label>
+								<FaMapMarkerAlt className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Código Postal</label>
 							</div>
 							<input
 								required
@@ -731,7 +763,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={handleChange}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.zipCode
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -768,8 +800,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4 md:col-span-2">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaFileSignature className="text-primary-dark text-2xl" />
-								<label className="text-base">Notas</label>
+								<FaFileSignature className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Notas</label>
 							</div>
 							<textarea
 								name="notes"
@@ -778,7 +810,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								rows={8}
 								className={`p-6 input w-full rounded-2xl border-2 border-blue-800 ${
 									form.notes
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
@@ -795,8 +827,8 @@ const ClientForm = React.forwardRef(function ClientForm(
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-primary-dark text-2xl" />
-								<label className="text-base">Nombre</label>
+								<FaUser className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Nombre</label>
 							</div>
 							<input
 								required
@@ -805,15 +837,15 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.contactPerson?.name
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-primary-dark text-2xl" />
-								<label className="text-base">Cargo</label>
+								<FaUser className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Cargo</label>
 							</div>
 							<input
 								required
@@ -822,15 +854,15 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.contactPerson?.role
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaEnvelope className="text-primary-dark text-2xl" />
-								<label className="text-base">Email</label>
+								<FaEnvelope className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Email</label>
 							</div>
 							<input
 								required
@@ -839,15 +871,15 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.contactPerson?.email
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaPhone className="text-primary-dark text-2xl" />
-								<label className="text-base">Teléfono</label>
+								<FaPhone className="text-dark text-2xl" />
+								<label className="text-base font-semibold">Teléfono</label>
 							</div>
 							<input
 								required
@@ -856,7 +888,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 								onChange={(e) => handleNestedChange(e, "contactPerson")}
 								className={`pl-4 input w-full rounded-2xl border-2 border-blue-800 py-2 ${
 									form.contactPerson?.phone
-										? "bg-blue-50 text-primary-dark dark:bg-gray-700 dark:text-gray-300"
+										? "bg-blue-200 text-dark dark:bg-gray-700 dark:text-gray-300"
 										: ""
 								}`}
 							/>
