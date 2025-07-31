@@ -40,6 +40,13 @@ interface SocialMedia {
 	x: string;
 }
 
+interface ContactPerson {
+	name: string;
+	role: string;
+	email: string;
+	phone: string;
+}
+
 //! Estructurar del cliente conforme al formulario
 export interface Client {
 	id: string;
@@ -59,12 +66,7 @@ export interface Client {
 	RFC: string;
 	CURP: string;
 	socialMedia: SocialMedia;
-	contactPerson: {
-		name: string;
-		role: string;
-		email: string;
-		phone: string;
-	};
+	contactPerson: ContactPerson;
 	logoUrl: string;
 	paymentTerms: string;
 	billingInfo: {
@@ -351,7 +353,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-dark text-2xl" />
+								<FaUser className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Nombre</label>
 							</div>
 							<input
@@ -368,7 +370,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-dark text-2xl" />
+								<FaUser className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">
 									Apellido Paterno
 								</label>
@@ -387,7 +389,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-dark text-2xl" />
+								<FaUser className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">
 									Apellido Materno
 								</label>
@@ -406,7 +408,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaPhone className="text-dark text-2xl" />
+								<FaPhone className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Teléfono</label>
 							</div>
 							<input
@@ -423,7 +425,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaEnvelope className="text-dark text-2xl" />
+								<FaEnvelope className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">
 									Correo Electrónico
 								</label>
@@ -442,7 +444,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaIdBadge className="text-dark text-2xl" />
+								<FaIdBadge className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">CURP</label>
 							</div>
 							<input
@@ -466,7 +468,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaFacebook className="text-dark text-2xl" />
+								<FaFacebook className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Facebook</label>
 							</div>
 							<input
@@ -482,7 +484,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaInstagram className="text-dark text-2xl" />
+								<FaInstagram className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Instagram</label>
 							</div>
 							<input
@@ -498,7 +500,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaLinkedin className="text-dark text-2xl" />
+								<FaLinkedin className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">LinkedIn</label>
 							</div>
 							<input
@@ -514,7 +516,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-dark text-2xl" />
+								<FaUser className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">X (Twitter)</label>
 							</div>
 							<input
@@ -538,7 +540,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Nombre Empresa */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaBuilding className="text-dark text-2xl" />
+								<FaBuilding className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">
 									Nombre de la Empresa
 								</label>
@@ -559,7 +561,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Industria */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaIndustry className="text-dark text-2xl" />
+								<FaIndustry className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Industria</label>
 							</div>
 							<select
@@ -587,7 +589,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Condiciones de pago */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaFileSignature className="text-dark text-2xl" />
+								<FaFileSignature className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">
 									Condiciones de pago
 								</label>
@@ -614,7 +616,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* RFC */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaEnvelope className="text-dark text-2xl" />
+								<FaEnvelope className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">RFC</label>
 							</div>
 							<input
@@ -632,7 +634,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Sitio Web */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaGlobe className="text-dark text-2xl" />
+								<FaGlobe className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Sitio Web</label>
 							</div>
 							<input
@@ -650,7 +652,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Email */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaEnvelope className="text-dark text-2xl" />
+								<FaEnvelope className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Email</label>
 							</div>
 							<input
@@ -671,7 +673,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Dirección */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaMapMarkerAlt className="text-dark text-2xl" />
+								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Calle</label>
 							</div>
 							<input
@@ -689,7 +691,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Ciudad */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaMapMarkerAlt className="text-dark text-2xl" />
+								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Ciudad</label>
 							</div>
 							<input
@@ -707,7 +709,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Estado */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaMapMarkerAlt className="text-dark text-2xl" />
+								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Estado</label>
 							</div>
 							<select
@@ -753,7 +755,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* Código Postal */}
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaMapMarkerAlt className="text-dark text-2xl" />
+								<FaMapMarkerAlt className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Código Postal</label>
 							</div>
 							<input
@@ -800,7 +802,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4 md:col-span-2">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaFileSignature className="text-dark text-2xl" />
+								<FaFileSignature className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Notas</label>
 							</div>
 							<textarea
@@ -827,7 +829,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 					<div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-dark text-2xl" />
+								<FaUser className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Nombre</label>
 							</div>
 							<input
@@ -844,7 +846,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaUser className="text-dark text-2xl" />
+								<FaUser className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Cargo</label>
 							</div>
 							<input
@@ -861,7 +863,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaEnvelope className="text-dark text-2xl" />
+								<FaEnvelope className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Email</label>
 							</div>
 							<input
@@ -878,7 +880,7 @@ const ClientForm = React.forwardRef(function ClientForm(
 						</div>
 						<div className="flex flex-col items-center gap-4">
 							<div className="flex items-center gap-2 justify-start w-full">
-								<FaPhone className="text-dark text-2xl" />
+								<FaPhone className="text-primary-dark text-2xl" />
 								<label className="text-base font-semibold">Teléfono</label>
 							</div>
 							<input
