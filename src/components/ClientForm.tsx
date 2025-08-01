@@ -781,12 +781,10 @@ const ClientForm = React.forwardRef(function ClientForm(
 						{/* guardar imagen en clients.json del cliente */}
 						<div className="col-span-4 flex flex-col items-center gap-6">
 							<div
-								id="adjuntar imagen"
+								id="adjuntar-logo"
 								className="flex items-center gap-4 justify-start w-full">
 								<FaImage className="text-primary-dark text-2xl" />
-								<label className="text-base font-semibold">
-									Adjuntar Imagen
-								</label>
+								<label className="text-base font-semibold">Adjuntar logo</label>
 							</div>
 							<input
 								type="file"
